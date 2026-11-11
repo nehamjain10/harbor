@@ -134,7 +134,7 @@ test('import: search over titles and folders, folder filter, clear filters', asy
   assert.ok(folders.length >= 4 && folders.every((f) => f === '~/monorepo'), folders.join());
   assert.match(await page.locator('.import-shown').textContent(), /^\d of 13$/);
 
-  await page.locator('.import-search input').fill('xz flip');
+  await page.locator('.import-search input').fill('axis flip');
   assert.deepEqual(await page.locator('.import-title').allTextContents(), ['Debug the axis flip in the export step']);
   await page.locator('.import-search input').fill('');
 
@@ -188,7 +188,7 @@ test('import: tick rows on both tabs; batches of 20 with the new-session model a
   assert.equal(bodies[0].ids[0], 'x1', 'newest first');
   await page.waitForFunction(() => location.search === '?session=imp-x1');
   assert.match(await page.locator('.toast').textContent(), /Imported 31 sessions\./);
-  await page.locator('.session-row', { hasText: 'Relabel the 10-02 user uploads' }).waitFor();
+  await page.locator('.session-row', { hasText: 'Relabel the 10-02 uploads' }).waitFor();
   assert.deepEqual(server.errors, []);
   await context.close();
 });
