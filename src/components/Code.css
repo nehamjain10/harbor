@@ -1,0 +1,175 @@
+/* Numbered listings, highlighted blocks and diffs (tool cards and side panel). */
+
+.code-view,
+.diff-view {
+  border-radius: var(--r-lg);
+  background: var(--bg-base);
+  border: 1px solid var(--bg-border-soft);
+  overflow: hidden;
+}
+
+.code-scroll,
+.diff-view {
+  overflow-x: auto;
+}
+
+.code-table,
+.diff-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.6;
+  tab-size: 4;
+}
+
+.code-table td,
+.diff-table td {
+  vertical-align: top;
+}
+
+.code-table .ln,
+.diff-table .ln {
+  width: 1%;
+  min-width: 38px;
+  padding: 0 10px 0 8px;
+  text-align: right;
+  color: var(--label-faint);
+  user-select: none;
+  -webkit-user-select: none;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.code-table .lc,
+.diff-table .lc {
+  padding: 0 14px 0 2px;
+  white-space: pre;
+  color: var(--label-base);
+}
+
+.code-table tr:first-child td,
+.diff-table tr:first-child td {
+  padding-top: 6px;
+}
+
+.code-table tr:last-child td,
+.diff-table tr:last-child td {
+  padding-bottom: 6px;
+}
+
+.wrap-lines .code-table .lc,
+.wrap-lines .diff-table .lc,
+.diff-view.wrap .lc {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.code-table tr.is-target td {
+  background: var(--accent-bg);
+}
+
+.code-table tr.is-target .ln {
+  color: var(--accent-highlight);
+  font-weight: 600;
+}
+
+.show-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  border-top: 1px solid var(--bg-border-soft);
+  color: var(--label-soft);
+  font-size: 12.5px;
+  font-weight: 500;
+  transition: background-color 120ms var(--ease), color 120ms var(--ease);
+}
+
+.show-all:hover {
+  background: var(--bg-base-hover);
+  color: var(--label-title);
+}
+
+.code-pre {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: var(--r-lg);
+  background: var(--bg-base);
+  border: 1px solid var(--bg-border-soft);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--label-base);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 360px;
+  overflow: auto;
+}
+
+/* Diffs */
+
+/* The sign hangs in the cell's left padding, so wrapped continuation lines line up
+   under the code rather than under the sign. */
+.diff-table .lc {
+  padding-left: 18px;
+  text-indent: -16px;
+}
+
+.diff-table .sign {
+  display: inline-block;
+  width: 16px;
+  text-indent: 0;
+  color: var(--label-faint);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.diff-view.no-numbers .lc {
+  padding-left: 24px;
+}
+
+.diff-table .d-add td {
+  background: var(--success-bg);
+}
+
+.diff-table .d-add .sign {
+  color: var(--success-highlight);
+}
+
+.diff-table .d-add .ln {
+  color: color-mix(in srgb, var(--success-highlight) 65%, transparent);
+}
+
+.diff-table .d-del td {
+  background: var(--error-bg);
+}
+
+.diff-table .d-del .sign {
+  color: var(--error-highlight);
+}
+
+.diff-table .d-del .ln {
+  color: color-mix(in srgb, var(--error-highlight) 65%, transparent);
+}
+
+.diff-table .d-hunk td {
+  padding: 3px 12px;
+  background: var(--info-bg);
+  color: var(--info-highlight);
+  font-size: 12px;
+}
+
+.diff-table .d-skip td {
+  padding: 2px 12px;
+  background: var(--bg-translucent);
+  color: var(--label-muted);
+  font-family: var(--font-ui);
+  font-size: 12px;
+}
+
+.diff-table .d-meta td {
+  padding: 3px 12px;
+  color: var(--label-muted);
+  font-size: 12px;
+}

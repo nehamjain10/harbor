@@ -1,0 +1,562 @@
+{
+ "scenario": "read-empty-pages",
+ "prompt": "[[mock:read-empty-pages]] read the file",
+ "messages": [
+  {
+   "type": "system",
+   "subtype": "init",
+   "cwd": "/work",
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "tools": [
+    "Task",
+    "AskUserQuestion",
+    "Bash",
+    "CronCreate",
+    "CronDelete",
+    "CronList",
+    "Edit",
+    "EnterPlanMode",
+    "EnterWorktree",
+    "ExitPlanMode",
+    "ExitWorktree",
+    "ListAgents",
+    "NotebookEdit",
+    "Read",
+    "ReportFindings",
+    "ScheduleWakeup",
+    "SendMessage",
+    "Skill",
+    "TaskStop",
+    "TodoWrite",
+    "WebFetch",
+    "WebSearch",
+    "Workflow",
+    "Write"
+   ],
+   "mcp_servers": [],
+   "model": "codex/gpt-6-luna",
+   "permissionMode": "bypassPermissions",
+   "slash_commands": [
+    "deep-research",
+    "dataviz",
+    "update-config",
+    "verify",
+    "debug",
+    "code-review",
+    "simplify",
+    "batch",
+    "fewer-permission-prompts",
+    "doctor",
+    "loop",
+    "claude-api",
+    "workflow-authoring",
+    "run",
+    "run-skill-generator",
+    "plugin-authoring",
+    "agents",
+    "auto-mode-setup",
+    "autocompact",
+    "clear",
+    "color",
+    "compact",
+    "config",
+    "output-style",
+    "context",
+    "effort",
+    "fast",
+    "focus",
+    "heapdump",
+    "init",
+    "mcp",
+    "model",
+    "__remote-workflow",
+    "workflow-launch-exec",
+    "reload-plugins",
+    "reload-skills",
+    "rename",
+    "security-review",
+    "usage",
+    "insights",
+    "recap",
+    "goal",
+    "list-agents",
+    "team-onboarding"
+   ],
+   "terminal_slash_commands": [
+    "doctor",
+    "color",
+    "focus",
+    "reload-plugins"
+   ],
+   "apiKeySource": "ANTHROPIC_API_KEY",
+   "claude_code_version": "2.1.289",
+   "output_style": "default",
+   "agents": [
+    "claude",
+    "claude-code-guide",
+    "Explore",
+    "general-purpose",
+    "Plan",
+    "statusline-setup"
+   ],
+   "skills": [
+    "deep-research",
+    "dataviz",
+    "update-config",
+    "verify",
+    "debug",
+    "code-review",
+    "simplify",
+    "batch",
+    "fewer-permission-prompts",
+    "doctor",
+    "loop",
+    "claude-api",
+    "workflow-authoring",
+    "run",
+    "run-skill-generator",
+    "plugin-authoring"
+   ],
+   "plugins": [
+    {
+     "name": "cc-plugin-agents-md",
+     "path": "builtin",
+     "source": "cc-plugin-agents-md@builtin"
+    },
+    {
+     "name": "cc-plugin-plugin-authoring",
+     "path": "builtin",
+     "source": "cc-plugin-plugin-authoring@builtin"
+    }
+   ],
+   "capabilities": [
+    "interrupt_receipt_v1",
+    "interrupt_cancel_queued_v1",
+    "interrupt_send_now_v1",
+    "msg_lifecycle_v1",
+    "sdk_mcp_tools_list_changed",
+    "sdk_mcp_manifests",
+    "mcp_read_resource_v1",
+    "mcp_tool_ui_meta_v1",
+    "ui_surface_v1"
+   ],
+   "analytics_disabled": true,
+   "product_feedback_disabled": true,
+   "uuid": "58622e7c-8220-492e-95f3-de76a797cf46",
+   "memory_paths": {
+    "auto": "/claude-config/projects/-tmp/memory/"
+   },
+   "messaging_socket_path": "/tmp/cc-socks/2885121.sock",
+   "fast_mode_state": "off",
+   "fast_mode_disabled_reason": "sdk_opt_in_required",
+   "per_turn_effort_active": false,
+   "view_mode": "default"
+  },
+  {
+   "type": "system",
+   "subtype": "status",
+   "status": "requesting",
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "uuid": "5c05ca12-9894-499a-85f0-1330c3815aac"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_start",
+    "message": {
+     "id": "msg_mock_dc889fb8435b5b5a",
+     "type": "message",
+     "role": "assistant",
+     "model": "codex/gpt-6-luna",
+     "content": [],
+     "stop_reason": null,
+     "stop_sequence": null,
+     "usage": {
+      "input_tokens": 120,
+      "cache_read_input_tokens": 850,
+      "cache_creation_input_tokens": 30,
+      "output_tokens": 1
+     }
+    }
+   },
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "parent_tool_use_id": null,
+   "uuid": "84d59b00-8c3b-4fea-9818-2c6853c5a8f2",
+   "ttft_ms": 8,
+   "thinking_display": "updates"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_start",
+    "index": 0,
+    "content_block": {
+     "type": "tool_use",
+     "id": "toolu_mock_b6829e3d3cd4aa8d",
+     "name": "Read",
+     "input": {}
+    }
+   },
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "parent_tool_use_id": null,
+   "uuid": "c98be6a8-9554-46bb-864e-2f66fef46f9c"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "input_json_delta",
+     "partial_json": "{\"file_path\":\"/work/hello.txt\",\"offset\":1}"
+    }
+   },
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "parent_tool_use_id": null,
+   "uuid": "36ed3c7f-ca9a-4c9e-a8f6-5be928ef210d"
+  },
+  {
+   "type": "assistant",
+   "message": {
+    "id": "msg_mock_dc889fb8435b5b5a",
+    "type": "message",
+    "role": "assistant",
+    "model": "codex/gpt-6-luna",
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_mock_b6829e3d3cd4aa8d",
+      "name": "Read",
+      "input": {
+       "file_path": "/work/hello.txt",
+       "offset": 1
+      }
+     }
+    ],
+    "stop_reason": null,
+    "stop_sequence": null,
+    "usage": {
+     "input_tokens": 120,
+     "cache_read_input_tokens": 850,
+     "cache_creation_input_tokens": 30,
+     "output_tokens": 1
+    },
+    "context_management": null
+   },
+   "parent_tool_use_id": null,
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "uuid": "75d6c9ea-6a8f-4b6d-b579-9d2627334f69",
+   "timestamp": "2026-10-05T18:35:37.303Z"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_stop",
+    "index": 0
+   },
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "parent_tool_use_id": null,
+   "uuid": "d0c10d84-c681-435e-ab47-be30efbf931b"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_delta",
+    "delta": {
+     "stop_reason": "tool_use",
+     "stop_sequence": null
+    },
+    "usage": {
+     "output_tokens": 20
+    }
+   },
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "parent_tool_use_id": null,
+   "uuid": "6989e3ec-025a-4270-b04b-95ffda560e4c"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_stop"
+   },
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "parent_tool_use_id": null,
+   "uuid": "a10859e9-c54b-4128-8e0a-abe9d456d9bc"
+  },
+  {
+   "type": "system",
+   "subtype": "task_summary",
+   "detail": "Reading hello.txt",
+   "uuid": "f34cdfce-1b7b-491a-a9cb-9fa3b3edc82a",
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c"
+  },
+  {
+   "type": "user",
+   "message": {
+    "role": "user",
+    "content": [
+     {
+      "tool_use_id": "toolu_mock_b6829e3d3cd4aa8d",
+      "type": "tool_result",
+      "content": "1\thello world\n2\tsecond line\n3\t"
+     }
+    ]
+   },
+   "parent_tool_use_id": null,
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "uuid": "2732087a-5f8e-4302-b11f-be7b49cbc6d3",
+   "timestamp": "2026-10-05T18:35:37.318Z",
+   "tool_use_result": {
+    "type": "text",
+    "file": {
+     "filePath": "/work/hello.txt",
+     "content": "hello world\nsecond line\n",
+     "numLines": 3,
+     "startLine": 1,
+     "totalLines": 3
+    }
+   }
+  },
+  {
+   "type": "system",
+   "subtype": "status",
+   "status": "requesting",
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "uuid": "e8ed5a66-4cb8-4e97-ba0b-162b805e2e28"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_start",
+    "message": {
+     "id": "msg_mock_c7208df117484742",
+     "type": "message",
+     "role": "assistant",
+     "model": "codex/gpt-6-luna",
+     "content": [],
+     "stop_reason": null,
+     "stop_sequence": null,
+     "usage": {
+      "input_tokens": 120,
+      "cache_read_input_tokens": 850,
+      "cache_creation_input_tokens": 30,
+      "output_tokens": 1
+     }
+    }
+   },
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "parent_tool_use_id": null,
+   "uuid": "735ced39-2ee1-46f7-9406-5793564f42ae",
+   "ttft_ms": 11,
+   "thinking_display": "updates"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_start",
+    "index": 0,
+    "content_block": {
+     "type": "text",
+     "text": ""
+    }
+   },
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "parent_tool_use_id": null,
+   "uuid": "ab867492-66b8-4904-aa3f-9a1d111c952a"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "text_delta",
+     "text": "Tool result: ok — 1 hell"
+    }
+   },
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "parent_tool_use_id": null,
+   "uuid": "1206dffe-bf86-41e2-80b9-89c4a8c8c975"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "text_delta",
+     "text": "o world 2 second line 3"
+    }
+   },
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "parent_tool_use_id": null,
+   "uuid": "a5e7a89b-1b77-4531-abcf-444a659642df"
+  },
+  {
+   "type": "assistant",
+   "message": {
+    "id": "msg_mock_c7208df117484742",
+    "type": "message",
+    "role": "assistant",
+    "model": "codex/gpt-6-luna",
+    "content": [
+     {
+      "type": "text",
+      "text": "Tool result: ok — 1 hello world 2 second line 3"
+     }
+    ],
+    "stop_reason": null,
+    "stop_sequence": null,
+    "usage": {
+     "input_tokens": 120,
+     "cache_read_input_tokens": 850,
+     "cache_creation_input_tokens": 30,
+     "output_tokens": 1
+    },
+    "context_management": null
+   },
+   "parent_tool_use_id": null,
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "uuid": "a9495b35-d3a7-47c4-8894-aafd34edfac9",
+   "timestamp": "2026-10-05T18:35:37.337Z"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_stop",
+    "index": 0
+   },
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "parent_tool_use_id": null,
+   "uuid": "6cfa9a21-b96c-436e-975b-5312fd41bbfb"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_delta",
+    "delta": {
+     "stop_reason": "end_turn",
+     "stop_sequence": null
+    },
+    "usage": {
+     "output_tokens": 20
+    }
+   },
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "parent_tool_use_id": null,
+   "uuid": "ca001a74-b212-4372-923f-60a3e8dc460c"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_stop"
+   },
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "parent_tool_use_id": null,
+   "uuid": "f5e5284f-3d1b-433e-82c8-e966f61b2978"
+  },
+  {
+   "type": "system",
+   "subtype": "post_turn_summary",
+   "summarizes_uuid": "a9495b35-d3a7-47c4-8894-aafd34edfac9",
+   "status_category": "review_ready",
+   "status_detail": "Tool result: ok — 1 hello world 2 second line 3",
+   "needs_action": "",
+   "uuid": "0b4d72ba-7fed-438d-b355-a4d774a58217",
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c"
+  },
+  {
+   "duration_api_ms": 58,
+   "stop_reason": "end_turn",
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c",
+   "total_cost_usd": 0.0024000000000000002,
+   "usage": {
+    "input_tokens": 240,
+    "cache_creation_input_tokens": 60,
+    "cache_read_input_tokens": 1700,
+    "output_tokens": 40,
+    "output_tokens_details": {
+     "thinking_tokens": 0
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 0,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "codex/gpt-6-luna": {
+     "inputTokens": 240,
+     "outputTokens": 40,
+     "cacheReadInputTokens": 1700,
+     "cacheCreationInputTokens": 60,
+     "webSearchRequests": 0,
+     "costUSD": 0.0024000000000000002,
+     "contextWindow": 200000,
+     "maxOutputTokens": 32000,
+     "thinkingTokens": 0,
+     "canonicalModel": "codex/gpt-6-luna",
+     "provider": "firstParty",
+     "costBasis": "unknown"
+    }
+   },
+   "permission_denials": [],
+   "terminal_reason": "completed",
+   "fast_mode_state": "off",
+   "fast_mode_disabled_reason": "sdk_opt_in_required",
+   "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+     "background": 0,
+     "foreground": 0,
+     "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+     "parent": 0,
+     "user": 0,
+     "system": 0
+    },
+    "refused": {
+     "depth_limit": 0,
+     "concurrency_limit": 0,
+     "budget": 0
+    },
+    "by_type": {}
+   },
+   "is_error": false,
+   "num_turns": 2,
+   "subtype": "success",
+   "api_error_status": null,
+   "result": "Tool result: ok — 1 hello world 2 second line 3",
+   "ttft_ms": 68,
+   "type": "result",
+   "duration_ms": 108,
+   "uuid": "2189d0dd-6163-494e-89a9-462e90c881be",
+   "ttft_stream_ms": 67,
+   "time_to_request_ms": 59,
+   "first_content_frame_ms": 67,
+   "queued_turn_count": 0,
+   "result_index": 0
+  },
+  {
+   "type": "system",
+   "subtype": "task_summary",
+   "detail": null,
+   "uuid": "84bd9b16-c159-468c-9225-bc0f72012d01",
+   "session_id": "7f15837f-2036-47e8-bd0a-70fa43acc59c"
+  }
+ ]
+}

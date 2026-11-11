@@ -1,0 +1,118 @@
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0 -10px;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 6px 10px;
+  border-radius: var(--r-xl);
+  text-align: left;
+  transition: background-color 120ms var(--ease);
+}
+
+.option-row:hover:not(:disabled) {
+  background: var(--bg-base-hover);
+}
+
+.option-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-10);
+  background: var(--bg-translucent);
+  color: var(--label-soft);
+}
+
+.option-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.option-label {
+  color: var(--label-title);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.option-note {
+  color: var(--label-muted);
+  font-size: 12.5px;
+}
+
+.option-row.is-danger .option-label,
+.option-row.is-danger .option-icon {
+  color: var(--error-highlight);
+}
+
+.option-row.is-danger .option-icon {
+  background: var(--error-bg);
+}
+
+.rename-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.allowed-rules {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--bg-border-soft);
+}
+
+.allowed-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: -4px 0 6px;
+}
+
+.allowed-rules .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.allowed-rules .eyebrow svg {
+  color: var(--success-highlight);
+}
+
+.allowed-rules ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.allowed-rules code {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: var(--r-md);
+  background: var(--bg-shade);
+  color: var(--label-base);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.rewind-hint {
+  margin: 12px 4px 4px;
+  color: var(--label-muted);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.rewind-stats {
+  margin-left: 4px;
+}

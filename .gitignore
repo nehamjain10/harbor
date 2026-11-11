@@ -1,0 +1,13 @@
+node_modules
+data/
+web.sock
+*.sock
+public/dist/
+qa-project/
+qa-ui-audit/
+effort-probe.mjs
+.staging/
+public/.build-stamp
+public/.build-lock/
+local.env
+local-*.json

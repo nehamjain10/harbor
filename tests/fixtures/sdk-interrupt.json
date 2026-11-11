@@ -1,0 +1,359 @@
+{
+ "scenario": "interrupt",
+ "prompt": "[[mock:slow]] stream slowly",
+ "messages": [
+  {
+   "type": "system",
+   "subtype": "init",
+   "cwd": "/work",
+   "session_id": "3e4d6553-2d8f-4ee0-bdd3-eb4228e90c30",
+   "tools": [
+    "Task",
+    "AskUserQuestion",
+    "Bash",
+    "CronCreate",
+    "CronDelete",
+    "CronList",
+    "Edit",
+    "EnterPlanMode",
+    "EnterWorktree",
+    "ExitPlanMode",
+    "ExitWorktree",
+    "ListAgents",
+    "NotebookEdit",
+    "Read",
+    "ReportFindings",
+    "ScheduleWakeup",
+    "SendMessage",
+    "Skill",
+    "TaskStop",
+    "TodoWrite",
+    "WebFetch",
+    "WebSearch",
+    "Workflow",
+    "Write"
+   ],
+   "mcp_servers": [],
+   "model": "codex/gpt-6-luna",
+   "permissionMode": "bypassPermissions",
+   "slash_commands": [
+    "deep-research",
+    "dataviz",
+    "update-config",
+    "verify",
+    "debug",
+    "code-review",
+    "simplify",
+    "batch",
+    "fewer-permission-prompts",
+    "doctor",
+    "loop",
+    "claude-api",
+    "workflow-authoring",
+    "run",
+    "run-skill-generator",
+    "plugin-authoring",
+    "agents",
+    "auto-mode-setup",
+    "autocompact",
+    "clear",
+    "color",
+    "compact",
+    "config",
+    "output-style",
+    "context",
+    "effort",
+    "fast",
+    "focus",
+    "heapdump",
+    "init",
+    "mcp",
+    "model",
+    "__remote-workflow",
+    "workflow-launch-exec",
+    "reload-plugins",
+    "reload-skills",
+    "rename",
+    "security-review",
+    "usage",
+    "insights",
+    "recap",
+    "goal",
+    "list-agents",
+    "team-onboarding"
+   ],
+   "terminal_slash_commands": [
+    "doctor",
+    "color",
+    "focus",
+    "reload-plugins"
+   ],
+   "apiKeySource": "ANTHROPIC_API_KEY",
+   "claude_code_version": "2.1.289",
+   "output_style": "default",
+   "agents": [
+    "claude",
+    "claude-code-guide",
+    "Explore",
+    "general-purpose",
+    "Plan",
+    "statusline-setup"
+   ],
+   "skills": [
+    "deep-research",
+    "dataviz",
+    "update-config",
+    "verify",
+    "debug",
+    "code-review",
+    "simplify",
+    "batch",
+    "fewer-permission-prompts",
+    "doctor",
+    "loop",
+    "claude-api",
+    "workflow-authoring",
+    "run",
+    "run-skill-generator",
+    "plugin-authoring"
+   ],
+   "plugins": [
+    {
+     "name": "cc-plugin-agents-md",
+     "path": "builtin",
+     "source": "cc-plugin-agents-md@builtin"
+    },
+    {
+     "name": "cc-plugin-plugin-authoring",
+     "path": "builtin",
+     "source": "cc-plugin-plugin-authoring@builtin"
+    }
+   ],
+   "capabilities": [
+    "interrupt_receipt_v1",
+    "interrupt_cancel_queued_v1",
+    "interrupt_send_now_v1",
+    "msg_lifecycle_v1",
+    "sdk_mcp_tools_list_changed",
+    "sdk_mcp_manifests",
+    "mcp_read_resource_v1",
+    "mcp_tool_ui_meta_v1",
+    "ui_surface_v1"
+   ],
+   "analytics_disabled": true,
+   "product_feedback_disabled": true,
+   "uuid": "b21509e4-da1c-4ab8-99af-75e81ecd16c2",
+   "memory_paths": {
+    "auto": "/claude-config/projects/-tmp/memory/"
+   },
+   "messaging_socket_path": "/tmp/cc-socks/2885418.sock",
+   "fast_mode_state": "off",
+   "fast_mode_disabled_reason": "sdk_opt_in_required",
+   "per_turn_effort_active": false,
+   "view_mode": "default"
+  },
+  {
+   "type": "system",
+   "subtype": "status",
+   "status": "requesting",
+   "session_id": "3e4d6553-2d8f-4ee0-bdd3-eb4228e90c30",
+   "uuid": "5ff0c0d7-e969-4d16-8fca-54e3cdf1e66b"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_start",
+    "message": {
+     "id": "msg_mock_27226079373faeb5",
+     "type": "message",
+     "role": "assistant",
+     "model": "codex/gpt-6-luna",
+     "content": [],
+     "stop_reason": null,
+     "stop_sequence": null,
+     "usage": {
+      "input_tokens": 120,
+      "cache_read_input_tokens": 850,
+      "cache_creation_input_tokens": 30,
+      "output_tokens": 1
+     }
+    }
+   },
+   "session_id": "3e4d6553-2d8f-4ee0-bdd3-eb4228e90c30",
+   "parent_tool_use_id": null,
+   "uuid": "ac7f81e8-f151-4ae8-a1a6-7c3439ddb28d",
+   "ttft_ms": 6,
+   "thinking_display": "updates"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_start",
+    "index": 0,
+    "content_block": {
+     "type": "text",
+     "text": ""
+    }
+   },
+   "session_id": "3e4d6553-2d8f-4ee0-bdd3-eb4228e90c30",
+   "parent_tool_use_id": null,
+   "uuid": "7afc672b-22cf-4e01-9d86-358299c82416"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "text_delta",
+     "text": "chunk 0 "
+    }
+   },
+   "session_id": "3e4d6553-2d8f-4ee0-bdd3-eb4228e90c30",
+   "parent_tool_use_id": null,
+   "uuid": "2431a60f-aa5f-4853-945d-12c25035b72b"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "text_delta",
+     "text": "chunk 1 "
+    }
+   },
+   "session_id": "3e4d6553-2d8f-4ee0-bdd3-eb4228e90c30",
+   "parent_tool_use_id": null,
+   "uuid": "444a4c84-751b-4599-8311-79564023b702"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "text_delta",
+     "text": "chunk 2 "
+    }
+   },
+   "session_id": "3e4d6553-2d8f-4ee0-bdd3-eb4228e90c30",
+   "parent_tool_use_id": null,
+   "uuid": "1fb7d227-fda1-405e-a7b7-0d2ee6f1da2a"
+  },
+  {
+   "type": "assistant",
+   "message": {
+    "id": "msg_mock_27226079373faeb5",
+    "type": "message",
+    "role": "assistant",
+    "model": "codex/gpt-6-luna",
+    "content": [
+     {
+      "type": "text",
+      "text": "chunk 0 chunk 1 chunk 2 "
+     }
+    ],
+    "stop_reason": null,
+    "stop_sequence": null,
+    "usage": {
+     "input_tokens": 120,
+     "cache_read_input_tokens": 850,
+     "cache_creation_input_tokens": 30,
+     "output_tokens": 1
+    },
+    "context_management": null
+   },
+   "parent_tool_use_id": null,
+   "session_id": "3e4d6553-2d8f-4ee0-bdd3-eb4228e90c30",
+   "uuid": "d776b96d-2553-4d28-984b-309fd1a2cbe3",
+   "timestamp": "2026-10-05T18:35:39.079Z",
+   "aborted": true
+  },
+  {
+   "type": "user",
+   "message": {
+    "role": "user",
+    "content": [
+     {
+      "type": "text",
+      "text": "[Request interrupted by user]"
+     }
+    ]
+   },
+   "parent_tool_use_id": null,
+   "session_id": "3e4d6553-2d8f-4ee0-bdd3-eb4228e90c30",
+   "uuid": "a9b29fd0-5f4e-42d9-962e-14d684fab485",
+   "timestamp": "2026-10-05T18:35:39.080Z"
+  },
+  {
+   "duration_api_ms": 0,
+   "stop_reason": null,
+   "session_id": "3e4d6553-2d8f-4ee0-bdd3-eb4228e90c30",
+   "total_cost_usd": 0,
+   "usage": {
+    "output_tokens_details": {
+     "thinking_tokens": 0
+    },
+    "input_tokens": 0,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 0,
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 0,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {},
+   "permission_denials": [],
+   "terminal_reason": "aborted_streaming",
+   "fast_mode_state": "off",
+   "fast_mode_disabled_reason": "sdk_opt_in_required",
+   "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+     "background": 0,
+     "foreground": 0,
+     "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+     "parent": 0,
+     "user": 0,
+     "system": 0
+    },
+    "refused": {
+     "depth_limit": 0,
+     "concurrency_limit": 0,
+     "budget": 0
+    },
+    "by_type": {}
+   },
+   "is_error": true,
+   "num_turns": 2,
+   "subtype": "error_during_execution",
+   "errors": [
+    "[ede_diagnostic] result_type=user last_content_type=n/a stop_reason=null"
+   ],
+   "type": "result",
+   "duration_ms": 266,
+   "uuid": "38f620d2-2c5b-4184-9fad-245dc94a43fa",
+   "queued_turn_count": 0,
+   "result_index": 0
+  }
+ ],
+ "thrown": "Claude Code returned an error result: [ede_diagnostic] result_type=user last_content_type=n/a stop_reason=null"
+}

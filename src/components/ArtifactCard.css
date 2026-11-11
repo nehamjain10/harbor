@@ -1,0 +1,99 @@
+/* A published artifact in the transcript (ArtifactCard.jsx). */
+
+.artifact-card {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 560px;
+  margin: 6px 0 10px;
+  padding: 4px 6px 4px 4px;
+  border-radius: var(--r-xl);
+  border: 0.5px solid var(--bg-border);
+  background: var(--bg-sub);
+  box-shadow: var(--shadow-xs);
+  transition: border-color 120ms var(--ease);
+}
+
+.artifact-card:hover {
+  border-color: var(--bg-border-strong);
+}
+
+.artifact-card-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 8px 8px 8px;
+  border-radius: var(--r-lg);
+  color: inherit;
+  text-decoration: none;
+}
+
+.artifact-card-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--r-lg);
+  background: var(--accent-bg);
+  color: var(--accent-highlight);
+}
+
+.artifact-card-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.artifact-card-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--label-title);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.artifact-card-sub {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--label-muted);
+  font-size: 12.5px;
+}
+
+.artifact-card-open {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: var(--r-md);
+  border: 0.5px solid var(--bg-border);
+  color: var(--label-soft);
+  font-size: 12.5px;
+  font-weight: 500;
+  transition: background-color 120ms var(--ease), color 120ms var(--ease);
+}
+
+.artifact-card-main:hover .artifact-card-open {
+  background: var(--bg-translucent-strong);
+  color: var(--label-title);
+}
+
+.artifact-card-main:focus-visible {
+  outline: 2px solid var(--accent-ring);
+  outline-offset: 1px;
+}
+
+@media (max-width: 759px) {
+  .artifact-card-open {
+    padding: 0 8px;
+  }
+}

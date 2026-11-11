@@ -1,0 +1,369 @@
+.composer-area {
+  position: relative;
+  flex-shrink: 0;
+  padding: 0 32px 18px;
+  background: var(--bg-base);
+}
+
+.composer-column {
+  position: relative;
+  max-width: var(--column-width);
+  margin: 0 auto;
+}
+
+.composer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--r-3xl);
+  border: 0.5px solid var(--bg-border-strong);
+  background: var(--bg-sub);
+  box-shadow: 0 4px 20px #0000000d, 0 0 0 0.5px transparent;
+  transition: border-color 150ms var(--ease), box-shadow 150ms var(--ease);
+}
+
+.composer:hover,
+.composer:focus-within {
+  border-color: var(--bg-border-strong);
+  box-shadow: 0 4px 24px #00000014, 0 0 0 0.5px var(--bg-border);
+}
+
+.composer-input {
+  display: block;
+  width: 100%;
+  min-height: 56px;
+  padding: 16px 20px 4px;
+  border: 0;
+  background: none;
+  color: var(--label-title);
+  font-size: 15.5px;
+  line-height: 1.55;
+  resize: none;
+  outline: none;
+}
+
+.composer-input::placeholder {
+  color: var(--label-muted);
+}
+
+.composer-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 10px 10px 10px;
+}
+
+.composer-chips {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+}
+
+.composer-chips > .popover-anchor {
+  min-width: 0;
+}
+
+.composer-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.composer-actions > .popover-anchor {
+  min-width: 0;
+}
+
+.send-btn,
+.stop-btn,
+.queue-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-left: 2px;
+  border-radius: var(--r-10);
+  transition: background-color 120ms var(--ease), opacity 120ms var(--ease), transform 120ms var(--ease);
+}
+
+.send-btn {
+  background: var(--accent-base);
+  color: var(--accent-label);
+}
+
+.send-btn:hover:not(:disabled) {
+  background: var(--accent-base-hover);
+}
+
+.send-btn:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.send-btn:disabled {
+  opacity: 1;
+  background: var(--accent-bg-hover);
+  color: var(--accent-highlight);
+}
+
+.stop-btn {
+  background: var(--bg-shade);
+  color: var(--label-title);
+}
+
+/* While a turn runs: queue for after it (the send button sends into the turn). */
+.queue-btn {
+  background: transparent;
+  color: var(--label-soft);
+  border: 1px solid var(--bg-border);
+}
+
+.queue-btn:hover:not(:disabled) {
+  background: var(--bg-shade);
+  color: var(--label-title);
+}
+
+.queue-btn:disabled {
+  opacity: 0.5;
+}
+
+.stop-btn:hover:not(:disabled) {
+  background: var(--error-bg);
+  color: var(--error-highlight);
+}
+
+/* Pressed: the turn is winding down. */
+.stop-btn.is-stopping {
+  color: var(--label-soft);
+  cursor: progress;
+}
+
+/* Bars above the composer */
+
+.connection-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding: 7px 12px;
+  border-radius: var(--r-xl);
+  border: 1px solid var(--warning-border);
+  background: var(--warning-bg);
+  color: var(--warning-highlight);
+  font-size: 13px;
+}
+
+.banner-offline {
+  border-color: var(--error-border);
+  background: var(--error-bg);
+  color: var(--error-highlight);
+}
+
+.queue-bar {
+  margin-bottom: 10px;
+  padding: 8px 8px 6px 14px;
+  border-radius: var(--r-2xl);
+  border: 1px solid var(--bg-border);
+  background: var(--bg-sub);
+}
+
+.queue-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 30px;
+  color: var(--label-soft);
+  font-size: 13px;
+}
+
+.queue-title {
+  color: var(--label-title);
+  font-weight: 500;
+  flex: 1;
+}
+
+.queue-note {
+  color: var(--label-muted);
+  font-size: 12px;
+  padding-right: 6px;
+}
+
+.queue-section + .queue-section {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid var(--bg-border);
+}
+
+/* Sent into the running turn, not read yet. */
+.queue-section.is-steering .queue-head svg {
+  color: var(--accent-highlight);
+}
+
+.queue-section.is-steering .queue-head {
+  flex-wrap: wrap;
+}
+
+.steer-now-btn {
+  flex-shrink: 0;
+}
+
+.queue-section.is-steering .steer-now-btn svg {
+  color: inherit;
+}
+
+/* The step Claude finishes before it reads them, with its running time. */
+.queue-step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 24px;
+  padding-left: 21px;
+  font-size: 12.5px;
+  color: var(--label-soft);
+  min-width: 0;
+}
+
+.queue-step svg {
+  flex-shrink: 0;
+  color: var(--label-muted);
+}
+
+.queue-step-label {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-mono);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.queue-step-time {
+  flex-shrink: 0;
+  color: var(--label-muted);
+  font-variant-numeric: tabular-nums;
+  padding-right: 6px;
+}
+
+.queue-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding-left: 21px;
+  font-size: 13.5px;
+  color: var(--label-base);
+}
+
+/* The message on its way to the server. */
+.queue-section.is-outgoing .queue-item {
+  padding-left: 0;
+  color: var(--label-soft);
+}
+
+.queue-section.is-outgoing .queue-item svg {
+  flex-shrink: 0;
+  color: var(--label-muted);
+}
+
+.queue-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 759px) {
+  .composer-area {
+    padding: 0 10px calc(10px + env(safe-area-inset-bottom));
+  }
+
+  .composer {
+    border-radius: var(--r-2xl);
+  }
+
+  .composer-input {
+    padding: 13px 14px 4px;
+    font-size: 16px;
+  }
+
+  .composer-toolbar {
+    padding: 4px 6px 6px;
+  }
+
+  /* Nothing is cut off or hidden behind a sideways scroll: the chips wrap, and the
+     model and send buttons move to a second line when the first is full. The pickers'
+     menus anchor to the composer (above it, left-aligned) instead of to their chip. */
+  .composer-toolbar {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 2px;
+  }
+
+  /* The chips join the toolbar's own wrapping row, so the model and send buttons
+     share the last line with whatever chips fit beside them. */
+  .composer-chips {
+    display: contents;
+  }
+
+  .composer-actions {
+    margin-left: auto;
+  }
+
+  .composer-chips > .popover-anchor {
+    position: static;
+  }
+
+  /* Touch targets at least 44px (Apple HIG), labels kept. */
+  .composer-chips .chip,
+  .composer-actions .chip {
+    height: 44px;
+    padding: 0 8px;
+  }
+
+  .composer-chips .chip-caret {
+    display: none;
+  }
+
+  .send-btn,
+  .stop-btn,
+  .queue-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .tool-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .toolbar-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .composer-actions {
+    gap: 4px;
+  }
+}
+
+/* Toolbar buttons: quiet icons. */
+.composer .tool-btn {
+  color: var(--label-muted);
+  border-radius: var(--r-10);
+}
+
+.composer .tool-btn:hover {
+  color: var(--label-title);
+  background: var(--bg-translucent-strong);
+}
+
+.composer .tool-attach {
+  border: 0.5px solid var(--bg-border-strong);
+  margin-right: 2px;
+}

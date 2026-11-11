@@ -1,0 +1,506 @@
+{
+ "scenario": "thinking",
+ "prompt": "[[mock:thinking]] think first",
+ "messages": [
+  {
+   "type": "system",
+   "subtype": "init",
+   "cwd": "/work",
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "tools": [
+    "Task",
+    "AskUserQuestion",
+    "Bash",
+    "CronCreate",
+    "CronDelete",
+    "CronList",
+    "Edit",
+    "EnterPlanMode",
+    "EnterWorktree",
+    "ExitPlanMode",
+    "ExitWorktree",
+    "ListAgents",
+    "NotebookEdit",
+    "Read",
+    "ReportFindings",
+    "ScheduleWakeup",
+    "SendMessage",
+    "Skill",
+    "TaskStop",
+    "TodoWrite",
+    "WebFetch",
+    "WebSearch",
+    "Workflow",
+    "Write"
+   ],
+   "mcp_servers": [],
+   "model": "codex/gpt-6-luna",
+   "permissionMode": "bypassPermissions",
+   "slash_commands": [
+    "deep-research",
+    "dataviz",
+    "update-config",
+    "verify",
+    "debug",
+    "code-review",
+    "simplify",
+    "batch",
+    "fewer-permission-prompts",
+    "doctor",
+    "loop",
+    "claude-api",
+    "workflow-authoring",
+    "run",
+    "run-skill-generator",
+    "plugin-authoring",
+    "agents",
+    "auto-mode-setup",
+    "autocompact",
+    "clear",
+    "color",
+    "compact",
+    "config",
+    "output-style",
+    "context",
+    "effort",
+    "fast",
+    "focus",
+    "heapdump",
+    "init",
+    "mcp",
+    "model",
+    "__remote-workflow",
+    "workflow-launch-exec",
+    "reload-plugins",
+    "reload-skills",
+    "rename",
+    "security-review",
+    "usage",
+    "insights",
+    "recap",
+    "goal",
+    "list-agents",
+    "team-onboarding"
+   ],
+   "terminal_slash_commands": [
+    "doctor",
+    "color",
+    "focus",
+    "reload-plugins"
+   ],
+   "apiKeySource": "ANTHROPIC_API_KEY",
+   "claude_code_version": "2.1.289",
+   "output_style": "default",
+   "agents": [
+    "claude",
+    "claude-code-guide",
+    "Explore",
+    "general-purpose",
+    "Plan",
+    "statusline-setup"
+   ],
+   "skills": [
+    "deep-research",
+    "dataviz",
+    "update-config",
+    "verify",
+    "debug",
+    "code-review",
+    "simplify",
+    "batch",
+    "fewer-permission-prompts",
+    "doctor",
+    "loop",
+    "claude-api",
+    "workflow-authoring",
+    "run",
+    "run-skill-generator",
+    "plugin-authoring"
+   ],
+   "plugins": [
+    {
+     "name": "cc-plugin-agents-md",
+     "path": "builtin",
+     "source": "cc-plugin-agents-md@builtin"
+    },
+    {
+     "name": "cc-plugin-plugin-authoring",
+     "path": "builtin",
+     "source": "cc-plugin-plugin-authoring@builtin"
+    }
+   ],
+   "capabilities": [
+    "interrupt_receipt_v1",
+    "interrupt_cancel_queued_v1",
+    "interrupt_send_now_v1",
+    "msg_lifecycle_v1",
+    "sdk_mcp_tools_list_changed",
+    "sdk_mcp_manifests",
+    "mcp_read_resource_v1",
+    "mcp_tool_ui_meta_v1",
+    "ui_surface_v1"
+   ],
+   "analytics_disabled": true,
+   "product_feedback_disabled": true,
+   "uuid": "50266d97-1b0f-4930-a1fd-29e42d658e15",
+   "memory_paths": {
+    "auto": "/claude-config/projects/-tmp/memory/"
+   },
+   "messaging_socket_path": "/tmp/cc-socks/2885221.sock",
+   "fast_mode_state": "off",
+   "fast_mode_disabled_reason": "sdk_opt_in_required",
+   "per_turn_effort_active": false,
+   "view_mode": "default"
+  },
+  {
+   "type": "system",
+   "subtype": "status",
+   "status": "requesting",
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "uuid": "f3407385-62d0-4b75-9ea0-5fc09fb44794"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_start",
+    "message": {
+     "id": "msg_mock_50288a8388cd4b6d",
+     "type": "message",
+     "role": "assistant",
+     "model": "codex/gpt-6-luna",
+     "content": [],
+     "stop_reason": null,
+     "stop_sequence": null,
+     "usage": {
+      "input_tokens": 120,
+      "cache_read_input_tokens": 850,
+      "cache_creation_input_tokens": 30,
+      "output_tokens": 1
+     }
+    }
+   },
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "parent_tool_use_id": null,
+   "uuid": "9969c601-0ea0-4a4c-b84c-a62a33e10f80",
+   "ttft_ms": 6,
+   "thinking_display": "updates"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_start",
+    "index": 0,
+    "content_block": {
+     "type": "thinking",
+     "thinking": "",
+     "signature": ""
+    }
+   },
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "parent_tool_use_id": null,
+   "uuid": "034a1f8f-912c-4985-b303-3e07a5e8916f",
+   "thinking_display": "updates"
+  },
+  {
+   "type": "system",
+   "subtype": "thinking_tokens",
+   "estimated_tokens": 7,
+   "estimated_tokens_delta": 7,
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "uuid": "85766779-56e2-4d86-b5bd-8ce24aefe972"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "thinking_delta",
+     "thinking": "Let me think about this step"
+    }
+   },
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "parent_tool_use_id": null,
+   "uuid": "5394d4be-3754-4d47-a4bb-f39ac8d099cf",
+   "thinking_display": "updates"
+  },
+  {
+   "type": "system",
+   "subtype": "thinking_tokens",
+   "estimated_tokens": 14,
+   "estimated_tokens_delta": 7,
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "uuid": "9cbc2bba-6a53-4475-8d19-210bcf09ca54"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "thinking_delta",
+     "thinking": " by step. The answer is 42."
+    }
+   },
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "parent_tool_use_id": null,
+   "uuid": "93a9b4be-9275-453a-ab6d-1a63451149e4",
+   "thinking_display": "updates"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "signature_delta",
+     "signature": "mock-signature-676ecaab09cf"
+    }
+   },
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "parent_tool_use_id": null,
+   "uuid": "369d89d1-d378-4326-84be-c2b909780046"
+  },
+  {
+   "type": "assistant",
+   "message": {
+    "id": "msg_mock_50288a8388cd4b6d",
+    "type": "message",
+    "role": "assistant",
+    "model": "codex/gpt-6-luna",
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "Let me think about this step by step. The answer is 42.",
+      "signature": "mock-signature-676ecaab09cf"
+     }
+    ],
+    "stop_reason": null,
+    "stop_sequence": null,
+    "usage": {
+     "input_tokens": 120,
+     "cache_read_input_tokens": 850,
+     "cache_creation_input_tokens": 30,
+     "output_tokens": 1
+    },
+    "context_management": null
+   },
+   "parent_tool_use_id": null,
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "uuid": "7bbc177c-de79-4ecf-b69c-2620c1ddd816",
+   "timestamp": "2026-10-05T18:35:37.875Z",
+   "thinking_duration_ms": 1
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_stop",
+    "index": 0
+   },
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "parent_tool_use_id": null,
+   "uuid": "a90e2819-88b2-459c-ba08-9e170d32678c"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_start",
+    "index": 1,
+    "content_block": {
+     "type": "text",
+     "text": ""
+    }
+   },
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "parent_tool_use_id": null,
+   "uuid": "27121408-6f5a-47be-8467-175aabf38e7a"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 1,
+    "delta": {
+     "type": "text_delta",
+     "text": "The answe"
+    }
+   },
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "parent_tool_use_id": null,
+   "uuid": "4229e987-e6e7-4783-b3ad-4d8412133cfe"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 1,
+    "delta": {
+     "type": "text_delta",
+     "text": "r is 42."
+    }
+   },
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "parent_tool_use_id": null,
+   "uuid": "957068e6-4cfc-4936-9779-f644953d73f0"
+  },
+  {
+   "type": "assistant",
+   "message": {
+    "id": "msg_mock_50288a8388cd4b6d",
+    "type": "message",
+    "role": "assistant",
+    "model": "codex/gpt-6-luna",
+    "content": [
+     {
+      "type": "text",
+      "text": "The answer is 42."
+     }
+    ],
+    "stop_reason": null,
+    "stop_sequence": null,
+    "usage": {
+     "input_tokens": 120,
+     "cache_read_input_tokens": 850,
+     "cache_creation_input_tokens": 30,
+     "output_tokens": 1
+    },
+    "context_management": null
+   },
+   "parent_tool_use_id": null,
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "uuid": "2012a85a-173d-41e5-a99b-13d8de8d2dd0",
+   "timestamp": "2026-10-05T18:35:37.876Z"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_stop",
+    "index": 1
+   },
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "parent_tool_use_id": null,
+   "uuid": "d1450532-f694-41ce-9946-9107938a913d"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_delta",
+    "delta": {
+     "stop_reason": "end_turn",
+     "stop_sequence": null
+    },
+    "usage": {
+     "output_tokens": 20
+    }
+   },
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "parent_tool_use_id": null,
+   "uuid": "54ed6c05-cf17-43e7-97c4-29de0ec992cd"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_stop"
+   },
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "parent_tool_use_id": null,
+   "uuid": "e139846a-1b00-40ca-ab27-49ca52383ffc"
+  },
+  {
+   "type": "system",
+   "subtype": "post_turn_summary",
+   "summarizes_uuid": "2012a85a-173d-41e5-a99b-13d8de8d2dd0",
+   "status_category": "review_ready",
+   "status_detail": "The answer is 42.",
+   "needs_action": "",
+   "uuid": "1e6764c6-b42a-430f-b3b7-9c684d0d69c9",
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1"
+  },
+  {
+   "duration_api_ms": 40,
+   "stop_reason": "end_turn",
+   "session_id": "edcd6e6d-4bbb-4a17-923d-858187bc38e1",
+   "total_cost_usd": 0.0012000000000000001,
+   "usage": {
+    "input_tokens": 120,
+    "cache_creation_input_tokens": 30,
+    "cache_read_input_tokens": 850,
+    "output_tokens": 20,
+    "output_tokens_details": {
+     "thinking_tokens": 0
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 0,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "codex/gpt-6-luna": {
+     "inputTokens": 120,
+     "outputTokens": 20,
+     "cacheReadInputTokens": 850,
+     "cacheCreationInputTokens": 30,
+     "webSearchRequests": 0,
+     "costUSD": 0.0012000000000000001,
+     "contextWindow": 200000,
+     "maxOutputTokens": 32000,
+     "thinkingTokens": 0,
+     "canonicalModel": "codex/gpt-6-luna",
+     "provider": "firstParty",
+     "costBasis": "unknown"
+    }
+   },
+   "permission_denials": [],
+   "terminal_reason": "completed",
+   "fast_mode_state": "off",
+   "fast_mode_disabled_reason": "sdk_opt_in_required",
+   "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+     "background": 0,
+     "foreground": 0,
+     "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+     "parent": 0,
+     "user": 0,
+     "system": 0
+    },
+    "refused": {
+     "depth_limit": 0,
+     "concurrency_limit": 0,
+     "budget": 0
+    },
+    "by_type": {}
+   },
+   "is_error": false,
+   "num_turns": 1,
+   "subtype": "success",
+   "api_error_status": null,
+   "result": "The answer is 42.",
+   "ttft_ms": 67,
+   "type": "result",
+   "duration_ms": 77,
+   "uuid": "6b9044a8-7bee-43c1-8926-3aa029d2d59f",
+   "ttft_stream_ms": 66,
+   "time_to_request_ms": 61,
+   "first_content_frame_ms": 66,
+   "queued_turn_count": 0,
+   "result_index": 0
+  }
+ ]
+}

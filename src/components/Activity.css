@@ -1,0 +1,494 @@
+/* Activity groups, compact tool rows, thinking rows. */
+
+.activity {
+  margin: 4px 0;
+}
+
+.activity-head,
+.thinking-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  min-height: 30px;
+  padding: 0 8px 0 6px;
+  margin-left: -6px;
+  border-radius: var(--r-lg);
+  color: var(--label-muted);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  transition: background-color 120ms var(--ease), color 120ms var(--ease);
+}
+
+.activity-head:hover,
+.thinking-toggle:hover {
+  background: var(--bg-translucent);
+  color: var(--label-soft);
+}
+
+.chevron {
+  flex-shrink: 0;
+  transition: transform 150ms var(--ease);
+}
+
+.is-open > button > .chevron,
+.is-open > .activity-head > .chevron,
+.is-open > .disclosure-toggle > .chevron {
+  transform: rotate(90deg);
+}
+
+.activity-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.activity-summary {
+  color: var(--label-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.activity.is-running .activity-head {
+  color: var(--label-soft);
+}
+
+.activity-sep {
+  color: var(--label-faint);
+}
+
+.activity-current {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--label-soft);
+  font-weight: 400;
+}
+
+.activity-time {
+  color: var(--label-muted);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.activity-errors {
+  flex-shrink: 0;
+  height: 18px;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--r-full);
+  background: var(--error-bg);
+  color: var(--error-highlight);
+  font-size: 11.5px;
+  font-weight: 500;
+}
+
+.activity-spinner {
+  color: var(--accent-highlight);
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin: 2px 0 6px 0;
+  padding-left: 11px;
+  border-left: 1px solid var(--bg-border-soft);
+  animation: unfold 180ms var(--ease);
+}
+
+/* A lone tool call: its row sits directly in the transcript. */
+.activity.is-single > .tool > .tool-row {
+  margin-left: -8px;
+  width: calc(100% + 8px);
+}
+
+/* Tool rows */
+
+.tool {
+  min-width: 0;
+}
+
+.tool-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 32px;
+  padding: 0 8px;
+  border-radius: var(--r-lg);
+  text-align: left;
+  font-size: 13px;
+  color: var(--label-soft);
+  transition: background-color 120ms var(--ease);
+}
+
+.tool-row:hover,
+.tool.is-open > .tool-row {
+  background: var(--bg-translucent);
+}
+
+.tool-icon {
+  color: var(--label-muted);
+}
+
+.tool-running > .tool-row .tool-icon {
+  color: var(--accent-highlight);
+}
+
+.tool-error > .tool-row .tool-icon {
+  color: var(--error-highlight);
+}
+
+.tool-verb {
+  color: var(--label-base);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.tool-target {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--label-soft);
+}
+
+.tool-target.mono {
+  font-size: 12.5px;
+}
+
+/* Paths lose their start, not their file name, when space runs out. */
+.tool-target.is-path {
+  direction: rtl;
+  text-align: left;
+}
+
+.tool-target.is-path bdi {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.tool-stats {
+  display: inline-flex;
+  gap: 6px;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.tool-badge,
+.tool-meta {
+  flex-shrink: 0;
+  height: 18px;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--r-full);
+  background: var(--bg-translucent);
+  color: var(--label-muted);
+  font-size: 11.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.tool-meta {
+  background: none;
+  padding: 0;
+}
+
+/* An agent's stats give way before its name. */
+.tool.is-agent .tool-meta {
+  display: block;
+  flex-shrink: 100;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 18px;
+}
+
+.tool.is-agent .tool-target {
+  min-width: 3em;
+}
+
+.tool-badge.badge-model {
+  background: var(--accent-bg);
+  color: var(--accent-highlight);
+}
+
+.tool-badge.badge-info {
+  background: var(--info-bg);
+  color: var(--info-highlight);
+}
+
+.tool-badge.is-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tool-badge.is-live::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: var(--r-full);
+  background: currentColor;
+  animation: pulse 1.6s var(--ease) infinite;
+}
+
+.tool-status {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 6px;
+}
+
+.tool-status.done {
+  color: var(--label-faint);
+}
+
+.tool-status.running {
+  color: var(--accent-highlight);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.tool-status.running .elapsed {
+  color: var(--label-muted);
+}
+
+.tool-status.error {
+  color: var(--error-highlight);
+}
+
+.tool-status.awaiting {
+  color: var(--warning-highlight);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* An agent's row: its button to open the transcript in the side panel sits beside it
+   (a background task's row: its button to its output in the Background tab). */
+.tool.is-agent,
+.tool.is-task {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 2px;
+}
+
+.tool.is-agent > :not(.tool-row, .agent-open-btn),
+.tool.is-task > :not(.tool-row, .agent-open-btn) {
+  grid-column: 1 / -1;
+}
+
+.agent-open-btn {
+  flex-shrink: 0;
+  color: var(--label-faint);
+}
+
+.tool.is-agent:hover > .agent-open-btn,
+.tool.is-task:hover > .agent-open-btn,
+.agent-event:hover > .agent-open-btn {
+  color: var(--label-soft);
+}
+
+.agent-open-btn:hover {
+  background: var(--bg-translucent);
+  color: var(--accent-highlight);
+}
+
+/* Latest step of a running subagent, under its row. */
+.tool-subline {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  margin: -2px 0 2px 30px;
+  padding-left: 10px;
+  border-left: 1px solid var(--bg-border-soft);
+  font-size: 12.5px;
+  color: var(--label-muted);
+}
+
+.tool-subline-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 22px;
+}
+
+.child-text {
+  padding: 4px 8px 4px 30px;
+}
+
+/* Thinking */
+
+.thinking {
+  margin: 4px 0;
+}
+
+.thinking.is-compact {
+  margin: 0;
+}
+
+.thinking.is-compact > .thinking-toggle {
+  width: 100%;
+  height: 32px;
+  margin: 0;
+  padding: 0 8px;
+  font-weight: 400;
+}
+
+.thinking-icon {
+  flex-shrink: 0;
+}
+
+.thinking.is-live .thinking-icon {
+  color: var(--accent-highlight);
+}
+
+.thinking-latest {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--label-muted);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.thinking-text {
+  margin: 4px 0 8px 7px;
+  padding: 2px 0 2px 14px;
+  border-left: 1px solid var(--bg-border);
+  color: var(--label-soft);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  animation: unfold 180ms var(--ease);
+}
+
+.thinking.is-compact .thinking-text {
+  margin-left: 15px;
+  font-size: 13.5px;
+}
+
+@media (max-width: 759px) {
+  .tool-row,
+  .thinking.is-compact > .thinking-toggle {
+    height: 38px;
+  }
+
+  .activity-head,
+  .thinking-toggle {
+    min-height: 36px;
+  }
+
+  .tool-badge {
+    display: none;
+  }
+}
+
+/* A background subagent ended: one quiet line that opens on its report. */
+.agent-event {
+  display: grid;
+  grid-template-columns: minmax(0, max-content) auto;
+  justify-content: start;
+  align-items: center;
+  column-gap: 2px;
+  margin-top: 4px;
+}
+
+.agent-event-row {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: calc(100% + 8px);
+  height: 28px;
+  margin-left: -8px;
+  padding: 0 8px;
+  border-radius: var(--r-lg);
+  text-align: left;
+  font-size: 13px;
+  color: var(--label-muted);
+  transition: background-color 120ms var(--ease);
+}
+
+.agent-event-row:hover,
+.agent-event.is-open > .agent-event-row {
+  background: var(--bg-translucent);
+}
+
+.agent-event-icon {
+  flex-shrink: 0;
+  color: var(--success-highlight);
+}
+
+.agent-event.is-failed .agent-event-icon,
+.agent-event.is-stopped .agent-event-icon {
+  color: var(--warning-highlight);
+}
+
+.agent-event-name {
+  min-width: 3em;
+  overflow: hidden;
+  color: var(--label-base);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.agent-event-kind {
+  flex-shrink: 0;
+  color: var(--label-faint);
+  white-space: nowrap;
+}
+
+.agent-event-outcome,
+.agent-event-stats {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Out of room, the stats give way first. */
+.agent-event-stats {
+  flex-shrink: 100;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--label-faint);
+}
+
+.agent-event-stats::before {
+  content: '·';
+  margin-right: 8px;
+}
+
+.agent-event-row .chevron {
+  flex-shrink: 0;
+  color: var(--label-faint);
+  transition: transform 120ms var(--ease);
+}
+
+.agent-event.is-open > .agent-event-row .chevron {
+  transform: rotate(90deg);
+}
+
+.agent-event-detail {
+  grid-column: 1 / -1;
+  min-width: 0;
+  margin: 4px 0 0 14px;
+  animation: unfold 180ms var(--ease);
+}

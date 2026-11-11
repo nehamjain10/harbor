@@ -1,0 +1,1150 @@
+{
+ "scenario": "agent",
+ "prompt": "[[mock:agent]] delegate this",
+ "messages": [
+  {
+   "type": "system",
+   "subtype": "init",
+   "cwd": "/work",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "tools": [
+    "Task",
+    "AskUserQuestion",
+    "Bash",
+    "CronCreate",
+    "CronDelete",
+    "CronList",
+    "Edit",
+    "EnterPlanMode",
+    "EnterWorktree",
+    "ExitPlanMode",
+    "ExitWorktree",
+    "ListAgents",
+    "NotebookEdit",
+    "Read",
+    "ReportFindings",
+    "ScheduleWakeup",
+    "SendMessage",
+    "Skill",
+    "TaskStop",
+    "TodoWrite",
+    "WebFetch",
+    "WebSearch",
+    "Workflow",
+    "Write"
+   ],
+   "mcp_servers": [],
+   "model": "codex/gpt-6-luna",
+   "permissionMode": "bypassPermissions",
+   "slash_commands": [
+    "deep-research",
+    "dataviz",
+    "update-config",
+    "verify",
+    "debug",
+    "code-review",
+    "simplify",
+    "batch",
+    "fewer-permission-prompts",
+    "doctor",
+    "loop",
+    "claude-api",
+    "workflow-authoring",
+    "run",
+    "run-skill-generator",
+    "plugin-authoring",
+    "agents",
+    "auto-mode-setup",
+    "autocompact",
+    "clear",
+    "color",
+    "compact",
+    "config",
+    "output-style",
+    "context",
+    "effort",
+    "fast",
+    "focus",
+    "heapdump",
+    "init",
+    "mcp",
+    "model",
+    "__remote-workflow",
+    "workflow-launch-exec",
+    "reload-plugins",
+    "reload-skills",
+    "rename",
+    "security-review",
+    "usage",
+    "insights",
+    "recap",
+    "goal",
+    "list-agents",
+    "team-onboarding"
+   ],
+   "terminal_slash_commands": [
+    "doctor",
+    "color",
+    "focus",
+    "reload-plugins"
+   ],
+   "apiKeySource": "ANTHROPIC_API_KEY",
+   "claude_code_version": "2.1.289",
+   "output_style": "default",
+   "agents": [
+    "claude",
+    "claude-code-guide",
+    "Explore",
+    "general-purpose",
+    "Plan",
+    "statusline-setup"
+   ],
+   "skills": [
+    "deep-research",
+    "dataviz",
+    "update-config",
+    "verify",
+    "debug",
+    "code-review",
+    "simplify",
+    "batch",
+    "fewer-permission-prompts",
+    "doctor",
+    "loop",
+    "claude-api",
+    "workflow-authoring",
+    "run",
+    "run-skill-generator",
+    "plugin-authoring"
+   ],
+   "plugins": [
+    {
+     "name": "cc-plugin-agents-md",
+     "path": "builtin",
+     "source": "cc-plugin-agents-md@builtin"
+    },
+    {
+     "name": "cc-plugin-plugin-authoring",
+     "path": "builtin",
+     "source": "cc-plugin-plugin-authoring@builtin"
+    }
+   ],
+   "capabilities": [
+    "interrupt_receipt_v1",
+    "interrupt_cancel_queued_v1",
+    "interrupt_send_now_v1",
+    "msg_lifecycle_v1",
+    "sdk_mcp_tools_list_changed",
+    "sdk_mcp_manifests",
+    "mcp_read_resource_v1",
+    "mcp_tool_ui_meta_v1",
+    "ui_surface_v1"
+   ],
+   "analytics_disabled": true,
+   "product_feedback_disabled": true,
+   "uuid": "4ae483ec-c52e-425b-95c0-8f881b3a86c2",
+   "memory_paths": {
+    "auto": "/claude-config/projects/-tmp/memory/"
+   },
+   "messaging_socket_path": "/tmp/cc-socks/2885265.sock",
+   "fast_mode_state": "off",
+   "fast_mode_disabled_reason": "sdk_opt_in_required",
+   "per_turn_effort_active": false,
+   "view_mode": "default"
+  },
+  {
+   "type": "system",
+   "subtype": "status",
+   "status": "requesting",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "uuid": "3f6e9da6-79a3-4479-b6c2-e6560d590c90"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_start",
+    "message": {
+     "id": "msg_mock_0007248f955bd4d0",
+     "type": "message",
+     "role": "assistant",
+     "model": "codex/gpt-6-luna",
+     "content": [],
+     "stop_reason": null,
+     "stop_sequence": null,
+     "usage": {
+      "input_tokens": 120,
+      "cache_read_input_tokens": 850,
+      "cache_creation_input_tokens": 30,
+      "output_tokens": 1
+     }
+    }
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "41344108-a0aa-4bf3-b9d8-5ab9a21aa13e",
+   "ttft_ms": 6,
+   "thinking_display": "updates"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_start",
+    "index": 0,
+    "content_block": {
+     "type": "tool_use",
+     "id": "toolu_mock_1d97fa6050267445",
+     "name": "Agent",
+     "input": {}
+    }
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "b9e088d5-cee5-4c7e-bcc7-ed211679acb7"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "input_json_delta",
+     "partial_json": "{\"description\":\"Check the workspace\",\"prompt\":"
+    }
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "4637818e-8cc7-4f12-ae3a-2e7cc68e1184"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "input_json_delta",
+     "partial_json": "\"[[mock:subagent]] Run a quick command and rep"
+    }
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "a5bb1569-a7a5-4517-8e54-763a9b2eece4"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "input_json_delta",
+     "partial_json": "ort back.\",\"subagent_type\":\"general-purpose\"}"
+    }
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "ef489623-0205-47e6-b535-93d31c7a723e"
+  },
+  {
+   "type": "assistant",
+   "message": {
+    "id": "msg_mock_0007248f955bd4d0",
+    "type": "message",
+    "role": "assistant",
+    "model": "codex/gpt-6-luna",
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_mock_1d97fa6050267445",
+      "name": "Agent",
+      "input": {
+       "description": "Check the workspace",
+       "prompt": "[[mock:subagent]] Run a quick command and report back.",
+       "subagent_type": "general-purpose"
+      }
+     }
+    ],
+    "stop_reason": null,
+    "stop_sequence": null,
+    "usage": {
+     "input_tokens": 120,
+     "cache_read_input_tokens": 850,
+     "cache_creation_input_tokens": 30,
+     "output_tokens": 1
+    },
+    "context_management": null
+   },
+   "parent_tool_use_id": null,
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "uuid": "0f854111-4bf2-44cf-9b4b-58001eaa929f",
+   "timestamp": "2026-10-05T18:35:38.192Z"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_stop",
+    "index": 0
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "1bce5b7f-6e6e-4280-80c8-f5b2f3c384f0"
+  },
+  {
+   "type": "system",
+   "subtype": "background_tasks_changed",
+   "tasks": [
+    {
+     "task_id": "ae85f37269d6b0955",
+     "task_type": "local_agent",
+     "description": "Check the workspace"
+    }
+   ],
+   "uuid": "5b3426e3-67f1-4ec3-baad-287f2fd9f305",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c"
+  },
+  {
+   "type": "system",
+   "subtype": "task_started",
+   "task_id": "ae85f37269d6b0955",
+   "tool_use_id": "toolu_mock_1d97fa6050267445",
+   "description": "Check the workspace",
+   "subagent_type": "general-purpose",
+   "is_backgrounded": true,
+   "spawn_depth": 1,
+   "task_type": "local_agent",
+   "prompt": "[[mock:subagent]] Run a quick command and report back.",
+   "uuid": "528afb7f-6451-4b63-825c-f035a4657e6f",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_delta",
+    "delta": {
+     "stop_reason": "tool_use",
+     "stop_sequence": null
+    },
+    "usage": {
+     "output_tokens": 20
+    }
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "09bbd52c-592e-43bb-945f-7e273b8fc405"
+  },
+  {
+   "type": "user",
+   "message": {
+    "role": "user",
+    "content": [
+     {
+      "tool_use_id": "toolu_mock_1d97fa6050267445",
+      "type": "tool_result",
+      "content": [
+       {
+        "type": "text",
+        "text": "Async agent launched successfully. (This tool result is internal metadata — never quote or paste any part of it, including the agentId below, into a user-facing reply.)\nagentId: ae85f37269d6b0955 (internal ID - do not mention to user. Use SendMessage with to: 'ae85f37269d6b0955', summary: '<5-10 word recap>' to continue this agent.)\nThe agent is working in the background. You will be notified automatically when it completes. You know nothing about its results until that notification arrives — do not report, assume, or predict them; continue other work or respond to the user in the meantime.\nDo not duplicate this agent's work — avoid working with the same files or topics it is using.\noutput_file: /tmp/claude-tasks/96253992-c0f8-4ee0-8ce6-745e1c215d5c/tasks/ae85f37269d6b0955.output\nDo NOT Read or tail this file via the shell tool — it is the full subagent JSONL transcript and reading it will overflow your context. If the user asks for progress, say the agent is still running; you'll get a completion notification."
+       }
+      ]
+     }
+    ]
+   },
+   "parent_tool_use_id": null,
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "uuid": "4562f901-1d31-4f21-8335-31a0e050fc0d",
+   "timestamp": "2026-10-05T18:35:38.200Z",
+   "tool_use_result": {
+    "isAsync": true,
+    "status": "async_launched",
+    "agentId": "ae85f37269d6b0955",
+    "description": "Check the workspace",
+    "resolvedModel": "codex/gpt-6-luna",
+    "prompt": "[[mock:subagent]] Run a quick command and report back.",
+    "outputFile": "/tmp/claude-tasks/96253992-c0f8-4ee0-8ce6-745e1c215d5c/tasks/ae85f37269d6b0955.output",
+    "canReadOutputFile": true
+   }
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_stop"
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "7999eabe-f287-45ca-ae00-cf93a6c66453"
+  },
+  {
+   "type": "system",
+   "subtype": "task_summary",
+   "detail": "Checking the workspace",
+   "uuid": "639e7ca8-e85b-4789-afc5-16f7b9c33c77",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c"
+  },
+  {
+   "type": "assistant",
+   "message": {
+    "id": "msg_mock_7f99be81aa1ab800",
+    "type": "message",
+    "role": "assistant",
+    "model": "codex/gpt-6-luna",
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_mock_09a0b15061d2979c",
+      "name": "Bash",
+      "input": {
+       "command": "echo subagent-ok",
+       "description": "Print a marker"
+      }
+     }
+    ],
+    "stop_reason": null,
+    "stop_sequence": null,
+    "usage": {
+     "input_tokens": 120,
+     "cache_read_input_tokens": 850,
+     "cache_creation_input_tokens": 30,
+     "output_tokens": 1
+    },
+    "context_management": null
+   },
+   "parent_tool_use_id": "toolu_mock_1d97fa6050267445",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "uuid": "5aa2853d-a1e8-444b-810c-97f7444d2479",
+   "timestamp": "2026-10-05T18:35:38.220Z",
+   "subagent_type": "general-purpose",
+   "task_description": "Check the workspace"
+  },
+  {
+   "type": "system",
+   "subtype": "task_progress",
+   "task_id": "ae85f37269d6b0955",
+   "tool_use_id": "toolu_mock_1d97fa6050267445",
+   "description": "Running Print a marker",
+   "subagent_type": "general-purpose",
+   "usage": {
+    "total_tokens": 1006,
+    "tool_uses": 1,
+    "duration_ms": 26
+   },
+   "last_tool_name": "Bash",
+   "uuid": "488f40ec-5dae-4f80-8658-788345aea69c",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c"
+  },
+  {
+   "type": "system",
+   "subtype": "status",
+   "status": "requesting",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "uuid": "da073d41-71a5-4e87-9f01-b9a88e164f94"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_start",
+    "message": {
+     "id": "msg_mock_839ce34352f2a2b0",
+     "type": "message",
+     "role": "assistant",
+     "model": "codex/gpt-6-luna",
+     "content": [],
+     "stop_reason": null,
+     "stop_sequence": null,
+     "usage": {
+      "input_tokens": 120,
+      "cache_read_input_tokens": 850,
+      "cache_creation_input_tokens": 30,
+      "output_tokens": 1
+     }
+    }
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "5806790a-91d0-4c2c-b6b1-694e402359f2",
+   "ttft_ms": 6,
+   "thinking_display": "updates"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_start",
+    "index": 0,
+    "content_block": {
+     "type": "text",
+     "text": ""
+    }
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "52e08f3f-f7fd-4a65-a8b8-6d72f29b8ae6"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "text_delta",
+     "text": "Tool result: ok — Async agent launched successfully. (This tool result is internal metadata — never quote or "
+    }
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "c6c2afb7-da2b-4dd2-913c-066d6b6a84d0"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "text_delta",
+     "text": "paste any part of it, including the agentId below, into a user-facing reply.) agentId: ae85f37269d6b0955 (int"
+    }
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "99b22e2a-1359-4b63-a77e-ac5b8395ebc0"
+  },
+  {
+   "type": "assistant",
+   "message": {
+    "id": "msg_mock_839ce34352f2a2b0",
+    "type": "message",
+    "role": "assistant",
+    "model": "codex/gpt-6-luna",
+    "content": [
+     {
+      "type": "text",
+      "text": "Tool result: ok — Async agent launched successfully. (This tool result is internal metadata — never quote or paste any part of it, including the agentId below, into a user-facing reply.) agentId: ae85f37269d6b0955 (int"
+     }
+    ],
+    "stop_reason": null,
+    "stop_sequence": null,
+    "usage": {
+     "input_tokens": 120,
+     "cache_read_input_tokens": 850,
+     "cache_creation_input_tokens": 30,
+     "output_tokens": 1
+    },
+    "context_management": null
+   },
+   "parent_tool_use_id": null,
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "uuid": "c9f561a7-d2c1-4fdb-9c5a-31272781f615",
+   "timestamp": "2026-10-05T18:35:38.242Z"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_stop",
+    "index": 0
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "8516c983-3429-48e0-84a8-bd92189a6420"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_delta",
+    "delta": {
+     "stop_reason": "end_turn",
+     "stop_sequence": null
+    },
+    "usage": {
+     "output_tokens": 20
+    }
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "f1e1d30b-973b-4976-b452-f5c63a287d76"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_stop"
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "84aac567-8bcb-498d-ac7e-80cf6ff3e24f"
+  },
+  {
+   "type": "system",
+   "subtype": "post_turn_summary",
+   "summarizes_uuid": "c9f561a7-d2c1-4fdb-9c5a-31272781f615",
+   "status_category": "review_ready",
+   "status_detail": "Tool result: ok — Async agent launched successfully. (This tool result is internal metadata — never quote or paste any part of it, including the agentId below, into a user-facing reply.) agentId: ae85f37269d6b0955 (int",
+   "needs_action": "",
+   "uuid": "b5c30359-3b08-4c12-bddf-9427b5ac3619",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c"
+  },
+  {
+   "duration_api_ms": 72,
+   "stop_reason": "end_turn",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "total_cost_usd": 0.0036000000000000003,
+   "usage": {
+    "input_tokens": 240,
+    "cache_creation_input_tokens": 60,
+    "cache_read_input_tokens": 1700,
+    "output_tokens": 40,
+    "output_tokens_details": {
+     "thinking_tokens": 0
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 0,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "codex/gpt-6-luna": {
+     "inputTokens": 360,
+     "outputTokens": 60,
+     "cacheReadInputTokens": 2550,
+     "cacheCreationInputTokens": 90,
+     "webSearchRequests": 0,
+     "costUSD": 0.0036000000000000003,
+     "contextWindow": 200000,
+     "maxOutputTokens": 32000,
+     "thinkingTokens": 0,
+     "canonicalModel": "codex/gpt-6-luna",
+     "provider": "firstParty",
+     "costBasis": "unknown"
+    }
+   },
+   "permission_denials": [],
+   "terminal_reason": "completed",
+   "fast_mode_state": "off",
+   "fast_mode_disabled_reason": "sdk_opt_in_required",
+   "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+     "background": 0,
+     "foreground": 0,
+     "unset": 1
+    },
+    "started_in_background": 1,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+     "parent": 0,
+     "user": 0,
+     "system": 0
+    },
+    "refused": {
+     "depth_limit": 0,
+     "concurrency_limit": 0,
+     "budget": 0
+    },
+    "by_type": {
+     "general-purpose": 1
+    }
+   },
+   "is_error": false,
+   "num_turns": 2,
+   "subtype": "success",
+   "api_error_status": null,
+   "result": "Tool result: ok — Async agent launched successfully. (This tool result is internal metadata — never quote or paste any part of it, including the agentId below, into a user-facing reply.) agentId: ae85f37269d6b0955 (int",
+   "ttft_ms": 66,
+   "type": "result",
+   "duration_ms": 126,
+   "uuid": "375b004b-775b-4751-a2d2-21329ab2c647",
+   "ttft_stream_ms": 65,
+   "time_to_request_ms": 60,
+   "first_content_frame_ms": 66,
+   "queued_turn_count": 0,
+   "result_index": 0
+  },
+  {
+   "type": "user",
+   "message": {
+    "role": "user",
+    "content": [
+     {
+      "tool_use_id": "toolu_mock_09a0b15061d2979c",
+      "type": "tool_result",
+      "content": "subagent-ok",
+      "is_error": false
+     }
+    ]
+   },
+   "parent_tool_use_id": "toolu_mock_1d97fa6050267445",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "uuid": "17c43806-5c19-4070-b2fb-cc4cbe8af229",
+   "timestamp": "2026-10-05T18:35:38.297Z",
+   "subagent_type": "general-purpose",
+   "task_description": "Check the workspace"
+  },
+  {
+   "type": "assistant",
+   "message": {
+    "id": "msg_mock_f8a973d65f460f84",
+    "type": "message",
+    "role": "assistant",
+    "model": "codex/gpt-6-luna",
+    "content": [
+     {
+      "type": "text",
+      "text": "Subagent finished."
+     }
+    ],
+    "stop_reason": null,
+    "stop_sequence": null,
+    "usage": {
+     "input_tokens": 120,
+     "cache_read_input_tokens": 850,
+     "cache_creation_input_tokens": 30,
+     "output_tokens": 1
+    },
+    "context_management": null
+   },
+   "parent_tool_use_id": "toolu_mock_1d97fa6050267445",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "uuid": "8d159d71-56fb-49d1-8eac-4d6b70d373db",
+   "timestamp": "2026-10-05T18:35:38.304Z",
+   "subagent_type": "general-purpose",
+   "task_description": "Check the workspace"
+  },
+  {
+   "type": "system",
+   "subtype": "background_tasks_changed",
+   "tasks": [],
+   "uuid": "d87c5e6b-bc94-4b0a-b77d-09fe2e428caf",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c"
+  },
+  {
+   "type": "system",
+   "subtype": "task_updated",
+   "task_id": "ae85f37269d6b0955",
+   "patch": {
+    "status": "completed",
+    "end_time": 1791225338337
+   },
+   "uuid": "71c5b05d-310e-40ec-9494-0de6aed1d377",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c"
+  },
+  {
+   "type": "system",
+   "subtype": "task_notification",
+   "task_id": "ae85f37269d6b0955",
+   "tool_use_id": "toolu_mock_1d97fa6050267445",
+   "status": "completed",
+   "output_file": "/tmp/claude-tasks/96253992-c0f8-4ee0-8ce6-745e1c215d5c/tasks/ae85f37269d6b0955.output",
+   "summary": "Subagent finished.",
+   "usage": {
+    "total_tokens": 1020,
+    "tool_uses": 1,
+    "duration_ms": 142
+   },
+   "uuid": "a746ad9c-462b-49b6-99c2-80375e400d5f",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c"
+  },
+  {
+   "type": "system",
+   "subtype": "init",
+   "cwd": "/work",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "tools": [
+    "Task",
+    "AskUserQuestion",
+    "Bash",
+    "CronCreate",
+    "CronDelete",
+    "CronList",
+    "Edit",
+    "EnterPlanMode",
+    "EnterWorktree",
+    "ExitPlanMode",
+    "ExitWorktree",
+    "ListAgents",
+    "NotebookEdit",
+    "Read",
+    "ReportFindings",
+    "ScheduleWakeup",
+    "SendMessage",
+    "Skill",
+    "TaskStop",
+    "TodoWrite",
+    "WebFetch",
+    "WebSearch",
+    "Workflow",
+    "Write"
+   ],
+   "mcp_servers": [],
+   "model": "codex/gpt-6-luna",
+   "permissionMode": "bypassPermissions",
+   "slash_commands": [
+    "deep-research",
+    "dataviz",
+    "update-config",
+    "verify",
+    "debug",
+    "code-review",
+    "simplify",
+    "batch",
+    "fewer-permission-prompts",
+    "doctor",
+    "loop",
+    "claude-api",
+    "workflow-authoring",
+    "run",
+    "run-skill-generator",
+    "plugin-authoring",
+    "agents",
+    "auto-mode-setup",
+    "autocompact",
+    "clear",
+    "color",
+    "compact",
+    "config",
+    "output-style",
+    "context",
+    "effort",
+    "fast",
+    "focus",
+    "heapdump",
+    "init",
+    "mcp",
+    "model",
+    "__remote-workflow",
+    "workflow-launch-exec",
+    "reload-plugins",
+    "reload-skills",
+    "rename",
+    "security-review",
+    "usage",
+    "insights",
+    "recap",
+    "goal",
+    "list-agents",
+    "team-onboarding"
+   ],
+   "terminal_slash_commands": [
+    "doctor",
+    "color",
+    "focus",
+    "reload-plugins"
+   ],
+   "apiKeySource": "ANTHROPIC_API_KEY",
+   "claude_code_version": "2.1.289",
+   "output_style": "default",
+   "agents": [
+    "claude",
+    "claude-code-guide",
+    "Explore",
+    "general-purpose",
+    "Plan",
+    "statusline-setup"
+   ],
+   "skills": [
+    "deep-research",
+    "dataviz",
+    "update-config",
+    "verify",
+    "debug",
+    "code-review",
+    "simplify",
+    "batch",
+    "fewer-permission-prompts",
+    "doctor",
+    "loop",
+    "claude-api",
+    "workflow-authoring",
+    "run",
+    "run-skill-generator",
+    "plugin-authoring"
+   ],
+   "plugins": [
+    {
+     "name": "cc-plugin-agents-md",
+     "path": "builtin",
+     "source": "cc-plugin-agents-md@builtin"
+    },
+    {
+     "name": "cc-plugin-plugin-authoring",
+     "path": "builtin",
+     "source": "cc-plugin-plugin-authoring@builtin"
+    }
+   ],
+   "capabilities": [
+    "interrupt_receipt_v1",
+    "interrupt_cancel_queued_v1",
+    "interrupt_send_now_v1",
+    "msg_lifecycle_v1",
+    "sdk_mcp_tools_list_changed",
+    "sdk_mcp_manifests",
+    "mcp_read_resource_v1",
+    "mcp_tool_ui_meta_v1",
+    "ui_surface_v1"
+   ],
+   "analytics_disabled": true,
+   "product_feedback_disabled": true,
+   "uuid": "b6f115f7-e4de-4336-8973-4d4360797eb0",
+   "memory_paths": {
+    "auto": "/claude-config/projects/-tmp/memory/"
+   },
+   "messaging_socket_path": "/tmp/cc-socks/2885265.sock",
+   "fast_mode_state": "off",
+   "fast_mode_disabled_reason": "sdk_opt_in_required",
+   "per_turn_effort_active": false,
+   "view_mode": "default"
+  },
+  {
+   "type": "system",
+   "subtype": "status",
+   "status": "requesting",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "uuid": "5e7cddb6-7748-4cef-ae00-aff57c68de57"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_start",
+    "message": {
+     "id": "msg_mock_f3e738cb56cc1ff7",
+     "type": "message",
+     "role": "assistant",
+     "model": "codex/gpt-6-luna",
+     "content": [],
+     "stop_reason": null,
+     "stop_sequence": null,
+     "usage": {
+      "input_tokens": 120,
+      "cache_read_input_tokens": 850,
+      "cache_creation_input_tokens": 30,
+      "output_tokens": 1
+     }
+    }
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "bb9d92c1-36f5-4224-a12d-ca1aee0e8c4b",
+   "ttft_ms": 3,
+   "thinking_display": "updates"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_start",
+    "index": 0,
+    "content_block": {
+     "type": "text",
+     "text": ""
+    }
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "0901f3f0-b366-4001-8a6f-2d4344dd2f55"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "text_delta",
+     "text": "o"
+    }
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "78077986-09d1-4e30-a063-54ffbe30981e"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "text_delta",
+     "text": "k"
+    }
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "2fcf5d98-28b3-4b32-a904-1d06cbcaa615"
+  },
+  {
+   "type": "assistant",
+   "message": {
+    "id": "msg_mock_f3e738cb56cc1ff7",
+    "type": "message",
+    "role": "assistant",
+    "model": "codex/gpt-6-luna",
+    "content": [
+     {
+      "type": "text",
+      "text": "ok"
+     }
+    ],
+    "stop_reason": null,
+    "stop_sequence": null,
+    "usage": {
+     "input_tokens": 120,
+     "cache_read_input_tokens": 850,
+     "cache_creation_input_tokens": 30,
+     "output_tokens": 1
+    },
+    "context_management": null
+   },
+   "parent_tool_use_id": null,
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "uuid": "41f46ba3-f434-49b4-950e-548110b2cb65",
+   "timestamp": "2026-10-05T18:35:38.366Z"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_stop",
+    "index": 0
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "d3b6b524-6729-46ae-8a19-50a1734132a2"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_delta",
+    "delta": {
+     "stop_reason": "end_turn",
+     "stop_sequence": null
+    },
+    "usage": {
+     "output_tokens": 20
+    }
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "0841cdbf-6721-4a40-a9fa-667412753eb3"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_stop"
+   },
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "parent_tool_use_id": null,
+   "uuid": "d4fd69b3-0abb-4f91-a21f-992f8cab357c"
+  },
+  {
+   "type": "system",
+   "subtype": "post_turn_summary",
+   "summarizes_uuid": "41f46ba3-f434-49b4-950e-548110b2cb65",
+   "status_category": "review_ready",
+   "status_detail": "ok",
+   "needs_action": "",
+   "uuid": "794c4d21-7ee7-426f-a110-d49bea1e4996",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c"
+  },
+  {
+   "duration_api_ms": 80,
+   "stop_reason": "end_turn",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c",
+   "total_cost_usd": 0.006,
+   "usage": {
+    "input_tokens": 120,
+    "cache_creation_input_tokens": 30,
+    "cache_read_input_tokens": 850,
+    "output_tokens": 20,
+    "output_tokens_details": {
+     "thinking_tokens": 0
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 0,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "codex/gpt-6-luna": {
+     "inputTokens": 600,
+     "outputTokens": 100,
+     "cacheReadInputTokens": 4250,
+     "cacheCreationInputTokens": 150,
+     "webSearchRequests": 0,
+     "costUSD": 0.006,
+     "contextWindow": 200000,
+     "maxOutputTokens": 32000,
+     "thinkingTokens": 0,
+     "canonicalModel": "codex/gpt-6-luna",
+     "provider": "firstParty",
+     "costBasis": "unknown"
+    }
+   },
+   "permission_denials": [],
+   "terminal_reason": "completed",
+   "fast_mode_state": "off",
+   "fast_mode_disabled_reason": "sdk_opt_in_required",
+   "origin": {
+    "kind": "task-notification",
+    "producer": "session-task"
+   },
+   "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+     "background": 0,
+     "foreground": 0,
+     "unset": 1
+    },
+    "started_in_background": 1,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 1,
+    "failed": 0,
+    "killed": {
+     "parent": 0,
+     "user": 0,
+     "system": 0
+    },
+    "refused": {
+     "depth_limit": 0,
+     "concurrency_limit": 0,
+     "budget": 0
+    },
+    "by_type": {
+     "general-purpose": 1
+    }
+   },
+   "is_error": false,
+   "num_turns": 1,
+   "subtype": "success",
+   "api_error_status": null,
+   "result": "ok",
+   "ttft_ms": 12,
+   "type": "result",
+   "duration_ms": 14,
+   "uuid": "9f9b4d1a-cfbf-4287-8ee5-ae97ada1f595",
+   "ttft_stream_ms": 11,
+   "time_to_request_ms": 9,
+   "first_content_frame_ms": 11,
+   "queued_turn_count": 0,
+   "result_index": 1
+  },
+  {
+   "type": "system",
+   "subtype": "task_summary",
+   "detail": null,
+   "uuid": "c66f9ae4-675b-4754-bf5f-049774a73dd8",
+   "session_id": "96253992-c0f8-4ee0-8ce6-745e1c215d5c"
+  }
+ ]
+}

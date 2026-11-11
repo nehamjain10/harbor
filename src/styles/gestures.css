@@ -1,0 +1,26 @@
+/* The phone drawer while a finger drags it (src/gestures.js sets the variables). */
+@media (max-width: 759px) {
+  /* An edge swipe opens the drawer instead of navigating back (where the browser
+     lets the page decide; iOS Safari's own back swipe still wins outside the
+     home-screen app). */
+  html {
+    overscroll-behavior-x: none;
+  }
+
+  .app.drawer-dragging .sidebar-slot,
+  .app.drawer-dragging.drawer-open .sidebar-slot {
+    transform: translateX(calc(-100% + var(--drawer-offset, 0px)));
+    transition: none;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .app.drawer-dragging .drawer-scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 49;
+    background: var(--bg-modal-overlay);
+    opacity: var(--drawer-progress, 0);
+    animation: none;
+  }
+}

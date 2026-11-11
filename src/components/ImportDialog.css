@@ -1,0 +1,743 @@
+/* Import picker (ImportDialog.jsx): tabs, search + folder filter, a windowed list of
+   fixed-height rows, and a footer with the import action and progress. */
+
+.import-dialog {
+  width: min(680px, calc(100vw - 32px));
+  height: min(720px, calc(var(--app-height, 100dvh) - 48px));
+}
+
+.import-dialog .dialog-panel {
+  height: 100%;
+}
+
+.import-dialog .dialog-subtitle {
+  white-space: normal;
+  line-height: 1.45;
+}
+
+.import-dialog .dialog-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.import-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Tabs */
+
+.import-tabs button {
+  height: 32px;
+  font-size: 13.5px;
+}
+
+.import-tabs button[aria-selected='true'] {
+  background: var(--bg-shade);
+  color: var(--label-title);
+  box-shadow: var(--shadow-xs);
+}
+
+.import-tab-count {
+  color: var(--label-muted);
+  font-size: 12px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.import-tabs button[aria-selected='true'] .import-tab-count {
+  color: var(--label-soft);
+}
+
+/* Ticked rows on the other tab. */
+.import-tab-ticked {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--r-full);
+  background: var(--accent-base);
+}
+
+[data-theme='light'] .import-tab-ticked {
+  background: var(--accent-highlight);
+}
+
+/* Search and folder filter */
+
+.import-filters {
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+}
+
+.import-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  height: 36px;
+  padding: 0 4px 0 11px;
+  border-radius: var(--r-10);
+  border: 1px solid transparent;
+  background: var(--bg-translucent);
+  color: var(--label-muted);
+  transition: border-color 150ms var(--ease);
+}
+
+.import-search:focus-within {
+  border-color: var(--bg-border);
+  color: var(--label-soft);
+}
+
+.import-search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  background: none;
+  color: var(--label-title);
+  font-size: 13.5px;
+  outline: none;
+}
+
+.import-search input::placeholder {
+  color: var(--label-muted);
+}
+
+.import-search input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.import-project {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: min(240px, 40%);
+  color: var(--label-muted);
+}
+
+.import-project select {
+  width: 100%;
+  min-width: 0;
+  height: 36px;
+  padding: 0 30px 0 11px;
+  border-radius: var(--r-10);
+  border: 1px solid transparent;
+  background: var(--bg-translucent);
+  color: var(--label-base);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color 150ms var(--ease);
+}
+
+.import-project select:focus-visible {
+  outline: none;
+  border-color: var(--bg-border-strong);
+}
+
+.import-project select option {
+  background: var(--bg-sub);
+  color: var(--label-base);
+}
+
+.import-project svg {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+}
+
+/* While importing, the rows being imported stay lit. */
+.import-dialog.is-importing .import-row {
+  cursor: default;
+}
+
+.import-dialog.is-importing .import-row:not(.is-checked) {
+  opacity: 0.45;
+}
+
+.import-dialog.is-importing .import-row:hover {
+  background: none;
+}
+
+.import-dialog.is-importing .import-row.is-checked {
+  background: var(--bg-translucent);
+}
+
+.import-controls:disabled .import-search,
+.import-controls:disabled .import-project {
+  opacity: 0.6;
+}
+
+/* List header: select all + count */
+
+.import-list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 34px;
+  margin-top: 2px;
+  padding: 0 10px;
+  border-bottom: 1px solid var(--bg-border-soft);
+  font-size: 12.5px;
+  color: var(--label-muted);
+}
+
+.import-select-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 28px;
+  color: var(--label-soft);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.import-select-all:hover:not(:disabled) {
+  color: var(--label-title);
+}
+
+.import-shown {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Checkbox */
+
+.import-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 1.5px solid var(--bg-border-strong);
+  color: var(--accent-label);
+  transition: background-color 120ms var(--ease), border-color 120ms var(--ease);
+  flex-shrink: 0;
+}
+
+.import-row.is-checked .import-box,
+.import-select-all[aria-checked='true'] .import-box,
+.import-select-all[aria-checked='mixed'] .import-box {
+  background: var(--accent-base);
+  border-color: var(--accent-highlight);
+}
+
+.import-row:hover .import-box {
+  border-color: var(--label-muted);
+}
+
+.import-row.is-checked:hover .import-box {
+  border-color: var(--accent-highlight);
+}
+
+/* Rows (fixed height: the list is windowed) */
+
+.import-list {
+  --row-h: 60px;
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  margin: 0 -12px;
+  padding: 0 12px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  outline: none;
+}
+
+.import-rows {
+  position: relative;
+}
+
+.import-row {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  align-content: center;
+  column-gap: 12px;
+  row-gap: 2px;
+  height: var(--row-h);
+  padding: 0 10px;
+  border-radius: var(--r-xl);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 120ms var(--ease);
+}
+
+.import-row:hover {
+  background: var(--bg-base-hover);
+}
+
+.import-row.is-checked {
+  background: var(--bg-translucent);
+}
+
+.import-row.is-checked:hover {
+  background: var(--bg-base-hover);
+}
+
+.import-list:focus-visible .import-row.is-active,
+.import-list.is-keyboard .import-row.is-active {
+  background: var(--bg-base-hover);
+  box-shadow: inset 0 0 0 1px var(--bg-border-strong);
+}
+
+.import-check {
+  grid-row: 1 / 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.import-title {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--label-base);
+  font-size: 14px;
+  font-weight: 450;
+}
+
+.import-row.is-checked .import-title {
+  color: var(--label-title);
+}
+
+.import-time {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+  color: var(--label-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.import-meta {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  color: var(--label-muted);
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+/* Without an "Imported" status the meta line runs under the time too. */
+.import-meta:last-child {
+  grid-column: 2 / 4;
+}
+
+/* A long folder is cut from the start: the last segments say the most. */
+.import-folder {
+  flex: 0 3 auto;
+  min-width: 3em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  direction: rtl;
+  text-align: left;
+}
+
+/* "~" or "~/a" is narrower than the minimum above: as wide as its text. */
+.import-folder.is-short {
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.import-folder > bdi {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.import-size {
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.import-size::before {
+  content: '·';
+  margin-right: 6px;
+}
+
+.import-chip {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--bg-border);
+  color: var(--label-soft);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.import-status {
+  grid-column: 3;
+  grid-row: 2;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--accent-highlight);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.import-done {
+  color: var(--accent-highlight);
+}
+
+.import-row.is-imported .import-title {
+  color: var(--label-soft);
+}
+
+.import-row.is-imported:hover .import-title {
+  color: var(--label-title);
+}
+
+.import-row.is-blocked {
+  cursor: default;
+}
+
+.import-row.is-blocked:hover {
+  background: none;
+}
+
+.import-row.is-blocked .import-title {
+  color: var(--label-muted);
+}
+
+.import-ban {
+  color: var(--label-faint);
+}
+
+.import-reason {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--warning-highlight);
+}
+
+.import-reason::before {
+  content: '·';
+  margin-right: 6px;
+  color: var(--label-muted);
+}
+
+/* Loading, empty and error states */
+
+.import-loading {
+  padding-top: 6px;
+}
+
+.import-loading-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px 6px;
+  color: var(--label-soft);
+  font-size: 13px;
+}
+
+.import-loading-note svg {
+  color: var(--accent-highlight);
+}
+
+.import-skeleton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: var(--row-h);
+  padding: 0 10px;
+}
+
+.import-skeleton .import-skeleton-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.import-skeleton-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.import-skeleton .skeleton-title {
+  width: var(--w);
+  height: 10px;
+}
+
+.import-skeleton .skeleton-meta {
+  width: calc(var(--w) * 0.55);
+  height: 8px;
+  opacity: 0.6;
+}
+
+.import-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 56px 24px;
+  text-align: center;
+}
+
+.import-state-icon {
+  color: var(--label-muted);
+}
+
+.import-state-icon.is-error {
+  color: var(--error-highlight);
+}
+
+.import-state-title {
+  color: var(--label-title);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.import-state-note {
+  max-width: 420px;
+  color: var(--label-muted);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.import-state .btn {
+  margin-top: 6px;
+}
+
+/* Partial failure report */
+
+.import-report {
+  flex-shrink: 0;
+  margin: 10px 0 2px;
+  padding: 8px 6px 8px 12px;
+  border-radius: var(--r-xl);
+  border: 1px solid var(--error-border);
+  background: var(--error-bg);
+  color: var(--error-highlight);
+  font-size: 13px;
+}
+
+.import-report-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.import-report-head span {
+  flex: 1;
+  min-width: 0;
+}
+
+.import-report-head .icon-btn {
+  color: inherit;
+}
+
+.import-report-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 104px;
+  margin: 6px 0 0;
+  padding: 0 6px 0 23px;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.import-report-list li {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.import-report-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--label-base);
+}
+
+.import-report-error {
+  font-size: 12.5px;
+  overflow-wrap: anywhere;
+}
+
+/* Footer */
+
+.import-dialog .dialog-footer {
+  position: relative;
+}
+
+.import-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  color: var(--label-soft);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.import-summary.import-confirm {
+  flex: 1 1 auto;
+  color: var(--label-title);
+  line-height: 1.35;
+  white-space: normal;
+}
+
+.import-summary .spin {
+  color: var(--accent-highlight);
+}
+
+.import-clear {
+  padding: 2px 4px;
+  border-radius: var(--r-sm);
+  color: var(--label-muted);
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.import-clear:hover {
+  color: var(--label-title);
+}
+
+.import-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--label-muted);
+  font-size: 12.5px;
+}
+
+.import-progress {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  overflow: hidden;
+  background: var(--bg-translucent-strong);
+}
+
+.import-progress::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-base);
+  transform-origin: left;
+  transform: scaleX(var(--done, 0));
+  transition: transform 300ms var(--ease);
+}
+
+/* Something is always moving while a batch is in flight. */
+.import-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 30%;
+  background: linear-gradient(90deg, transparent, var(--accent-base), transparent);
+  animation: import-sweep 1.3s linear infinite;
+}
+
+[data-theme='light'] .import-progress::before {
+  background: var(--accent-highlight);
+}
+
+[data-theme='light'] .import-progress::after {
+  background: linear-gradient(90deg, transparent, var(--accent-highlight), transparent);
+}
+
+@keyframes import-sweep {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(340%);
+  }
+}
+
+@media (hover: none), (max-width: 759px) {
+  .import-hint {
+    display: none;
+  }
+}
+
+/* Phone: a tall bottom sheet with roomier rows. */
+@media (max-width: 759px) {
+  .import-dialog {
+    height: calc(var(--app-height, 100dvh) - 32px);
+  }
+
+  .import-dialog .dialog-header {
+    padding: 16px 12px 10px 16px;
+  }
+
+  .import-dialog .dialog-body {
+    padding: 0 16px;
+  }
+
+  .import-dialog .dialog-footer {
+    padding: 12px 16px 14px;
+  }
+
+  .import-list {
+    --row-h: 62px;
+    margin: 0 -8px;
+    padding: 0 8px;
+  }
+
+  .import-row,
+  .import-list-head,
+  .import-skeleton {
+    padding: 0 8px;
+  }
+
+  .import-search,
+  .import-project select {
+    height: 40px;
+  }
+
+  .import-tabs button {
+    height: 36px;
+  }
+}
+
+@media (max-width: 479px) {
+  .import-cancel {
+    display: none;
+  }
+
+  .import-dialog .dialog-subtitle {
+    font-size: 12.5px;
+  }
+}

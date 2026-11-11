@@ -1,0 +1,396 @@
+/* The side panel's agent mode: header with breadcrumbs, status line, transcript. */
+
+.agent-panel-head {
+  justify-content: flex-start;
+  padding: 0 8px 0 14px;
+}
+
+.agent-panel-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--accent-highlight);
+}
+
+.agent-crumbs {
+  flex: 0 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.agent-crumb-step {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 1 auto;
+  min-width: 36px;
+  gap: 2px;
+}
+
+.agent-crumb {
+  min-width: 0;
+  max-width: 180px;
+  height: 26px;
+  padding: 0 6px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--label-muted);
+  font-size: 13px;
+}
+
+.agent-crumb:hover {
+  background: var(--bg-base-hover);
+  color: var(--label-title);
+}
+
+.agent-crumb-sep {
+  flex-shrink: 0;
+  color: var(--label-faint);
+}
+
+.agent-panel-title {
+  flex: 0 1 auto;
+  min-width: 0;
+  margin: 0;
+  padding-left: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--label-title);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.agent-crumb-step + .agent-panel-title {
+  padding-left: 2px;
+}
+
+.agent-panel-kind {
+  flex-shrink: 0;
+  height: 20px;
+  padding: 0 7px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--r-full);
+  background: var(--bg-translucent);
+  color: var(--label-muted);
+  font-size: 11.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.agent-panel-head .panel-actions {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.agent-panel-stop {
+  gap: 6px;
+  margin-right: 2px;
+  color: var(--label-soft);
+}
+
+.agent-panel-stop:hover:not(:disabled) {
+  color: var(--error-highlight);
+}
+
+/* Status line */
+
+.agent-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0 10px 0 14px;
+  border-bottom: 1px solid var(--bg-border-soft);
+  color: var(--label-muted);
+  font-size: 12.5px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.agent-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--label-base);
+  font-weight: 500;
+}
+
+.agent-state svg {
+  color: var(--success-highlight);
+}
+
+.agent-state.is-running svg {
+  color: var(--accent-highlight);
+}
+
+.agent-state.is-awaiting {
+  color: var(--warning-highlight);
+}
+
+.agent-state.is-awaiting svg,
+.agent-state.is-stopped svg,
+.agent-state.is-launched svg {
+  color: var(--warning-highlight);
+}
+
+.agent-state.is-failed svg {
+  color: var(--error-highlight);
+}
+
+.agent-status-time,
+.agent-status-stats {
+  font-variant-numeric: tabular-nums;
+}
+
+.agent-status-stats {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agent-status > * + .agent-status-time::before,
+.agent-status > * + .agent-status-stats::before {
+  content: '·';
+  margin-right: 8px;
+  color: var(--label-faint);
+}
+
+.agent-status-branch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+}
+
+.agent-status-branch svg {
+  flex-shrink: 0;
+}
+
+.agent-status-branch span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agent-files-btn {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 9px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--bg-border);
+  color: var(--label-soft);
+  font-size: 12px;
+  transition: background-color 120ms var(--ease), color 120ms var(--ease);
+}
+
+.agent-files-btn:hover:not(:disabled) {
+  background: var(--bg-base-hover);
+  color: var(--label-title);
+}
+
+.agent-files-btn.is-on {
+  border-color: var(--accent-ring);
+  background: var(--accent-bg);
+  color: var(--accent-highlight);
+}
+
+/* Transcript */
+
+.agent-panel-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.agent-transcript .transcript-column {
+  padding: 20px 20px 28px;
+}
+
+/* The message box under a running model agent's transcript */
+
+.agent-message {
+  flex-shrink: 0;
+  padding: 10px 14px 12px;
+  border-top: 1px solid var(--bg-border-soft);
+  background: var(--bg-sub);
+}
+
+.agent-message-field {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 4px 4px 4px 14px;
+  border-radius: var(--r-2xl);
+  border: 1px solid var(--bg-border);
+  background: var(--bg-base);
+  transition: border-color 150ms var(--ease);
+}
+
+.agent-message-field:focus-within {
+  border-color: var(--bg-border-strong);
+}
+
+/* A message the server refused: its words are back in the box. */
+.agent-message-field:has(.agent-message-input[aria-invalid='true']) {
+  border-color: var(--error-border);
+}
+
+.agent-message-input {
+  flex: 1;
+  min-width: 0;
+  padding: 7px 0;
+  border: 0;
+  background: none;
+  color: var(--label-title);
+  font-size: 14px;
+  line-height: 1.5;
+  resize: none;
+  outline: none;
+}
+
+.agent-message-input::placeholder {
+  color: var(--label-muted);
+}
+
+.agent-message-input:disabled {
+  color: var(--label-muted);
+}
+
+.agent-message-send {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--r-full);
+  background: var(--accent-base);
+  color: var(--accent-label);
+}
+
+.agent-message-send:hover:not(:disabled) {
+  background: var(--accent-base-hover);
+}
+
+.agent-message-send:disabled {
+  background: var(--bg-shade);
+  color: var(--label-muted);
+}
+
+.agent-message-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 18px;
+  margin: 7px 4px 0;
+  color: var(--label-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.agent-message-note.is-error {
+  color: var(--error-highlight);
+}
+
+.agent-message-note.is-error svg {
+  flex-shrink: 0;
+}
+
+.agent-message-keys {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.agent-message-discard {
+  margin-left: auto;
+  padding: 0 4px;
+  color: var(--label-soft);
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.agent-message-discard:hover {
+  color: var(--label-title);
+}
+
+/* Above a transcript read from Claude Code's files (or why it could not be). */
+.agent-files-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--bg-border-soft);
+  color: var(--label-soft);
+  font-size: 12.5px;
+  line-height: 1.45;
+  flex-shrink: 0;
+}
+
+.agent-files-note svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--info-highlight);
+}
+
+.agent-files-note.is-warning svg {
+  color: var(--warning-highlight);
+}
+
+/* Widened: as wide as the conversation beside it allows (it keeps a usable column). */
+@media (min-width: 1024px) {
+  .side-panel.is-wide {
+    width: max(var(--panel-width), min(1100px, 72vw));
+    flex-shrink: 1;
+    min-width: min(var(--panel-width), 50vw);
+  }
+
+  .app:has(.side-panel.is-wide) .main {
+    min-width: 480px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .agent-panel-wide {
+    display: none;
+  }
+}
+
+@media (max-width: 759px) {
+  .agent-panel-head {
+    padding-left: 16px;
+  }
+
+  .agent-panel-kind {
+    display: none;
+  }
+
+  .agent-transcript .transcript-column {
+    padding: 16px 16px 24px;
+  }
+
+  .agent-message {
+    padding: 8px 12px 10px;
+  }
+}
+
+/* Enter makes a new line on a phone; the button sends. */
+@media (hover: none), (pointer: coarse) {
+  .agent-message-keys {
+    display: none;
+  }
+}

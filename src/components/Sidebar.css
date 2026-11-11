@@ -1,0 +1,732 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: var(--sidebar-width);
+  height: 100%;
+  padding: 8px 10px 0;
+  background: var(--bg-strong);
+  border-right: 1px solid var(--bg-border-soft);
+}
+
+.sidebar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0 0 0 8px;
+  margin-bottom: 10px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.brand-word {
+  color: var(--label-title);
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.brand-mark {
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.new-session-row {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.new-session {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+  padding: 0 8px 0 6px;
+  border-radius: var(--r-10);
+  color: var(--label-title);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 120ms var(--ease);
+}
+
+.new-session:hover {
+  background: var(--bg-translucent);
+}
+
+.new-session:active {
+  background: var(--bg-translucent-strong);
+}
+
+/* The clay disc around the plus. */
+.new-session-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--r-full);
+  background: var(--accent-base);
+  color: var(--accent-label);
+  flex-shrink: 0;
+  transition: transform 160ms var(--ease-pop), background-color 120ms var(--ease);
+}
+
+.new-session:hover .new-session-icon {
+  background: var(--accent-base-hover);
+  transform: rotate(90deg);
+}
+
+.new-session > span:not(.keys):not(.new-session-icon) {
+  flex: 1;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.new-session-keys {
+  opacity: 0;
+  transition: opacity 120ms var(--ease);
+}
+
+.new-session:hover .new-session-keys,
+.new-session:focus-visible .new-session-keys {
+  opacity: 1;
+}
+
+.new-session-keys kbd {
+  background: var(--bg-translucent-strong);
+  color: var(--label-muted);
+}
+
+/* Import: a quiet icon beside New session. */
+.import-sessions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: var(--r-10);
+  color: var(--label-muted);
+  transition: background-color 120ms var(--ease), color 120ms var(--ease);
+}
+
+.import-sessions:hover {
+  background: var(--bg-translucent);
+  color: var(--label-title);
+}
+
+.import-sessions:active {
+  background: var(--bg-translucent-strong);
+}
+
+.sidebar-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+  margin: 2px 0 6px;
+  padding: 0 6px 0 10px;
+  border-radius: var(--r-10);
+  color: var(--label-muted);
+  transition: background-color 120ms var(--ease);
+}
+
+.sidebar-search:hover {
+  background: var(--bg-translucent);
+}
+
+.sidebar-search:focus-within {
+  background: var(--bg-translucent-strong);
+  color: var(--label-soft);
+}
+
+.sidebar-search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  background: none;
+  color: var(--label-title);
+  font-size: 14px;
+  outline: none;
+}
+
+.sidebar-search input::placeholder {
+  color: var(--label-muted);
+}
+
+.sidebar-search input::-webkit-search-cancel-button {
+  display: none;
+}
+
+/* Chats / Archived / Trash: quiet text tabs. */
+.sidebar-filters.segmented {
+  gap: 2px;
+  margin: 0 0 4px;
+  padding: 0;
+  background: none;
+  border: 0;
+}
+
+.sidebar-filters.segmented button {
+  flex: 0 0 auto;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: var(--r-full);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--label-muted);
+  background: none;
+  box-shadow: none;
+}
+
+.sidebar-filters.segmented button:hover {
+  color: var(--label-base);
+  background: var(--bg-translucent);
+}
+
+.sidebar-filters.segmented button[aria-pressed='true'] {
+  color: var(--label-title);
+  background: var(--bg-translucent-strong);
+  box-shadow: none;
+}
+
+.filter-count {
+  margin-left: 4px;
+  font-size: 11px;
+  color: var(--label-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.session-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  margin: 0 -10px;
+  padding: 0 6px 12px 10px;
+  scrollbar-gutter: stable;
+}
+
+.session-group {
+  margin-top: 14px;
+}
+
+.session-group:first-child {
+  margin-top: 6px;
+}
+
+.session-group-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--label-muted);
+}
+
+.session-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: var(--r-lg);
+  transition: background-color 100ms var(--ease);
+}
+
+.session-row:hover {
+  background: var(--bg-translucent);
+}
+
+.session-row:has(> .session-main:active) {
+  background: var(--bg-translucent-strong);
+}
+
+.session-row.is-active {
+  background: var(--bg-translucent-strong);
+}
+
+.session-row.is-loading .session-title {
+  color: var(--label-soft);
+}
+
+.session-main {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  height: 34px;
+  padding: 0 26px 0 10px;
+  text-align: left;
+  border-radius: var(--r-lg);
+}
+
+.session-main:focus-visible {
+  outline-offset: -2px;
+}
+
+/* A remote session's cluster sits before its title (ClusterBadge.jsx). */
+.session-main .cluster-badge {
+  margin-right: 6px;
+}
+
+.session-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--label-soft);
+}
+
+.session-row:hover .session-title {
+  color: var(--label-base);
+}
+
+.session-row.is-active .session-title,
+.session-row.is-unread .session-title {
+  color: var(--label-title);
+}
+
+.session-row.is-unread .session-title {
+  font-weight: 500;
+}
+
+.status-dot {
+  position: absolute;
+  right: 12px;
+  width: 7px;
+  height: 7px;
+  border-radius: var(--r-full);
+  pointer-events: none;
+  transition: opacity 120ms var(--ease);
+}
+
+.dot-running {
+  background: var(--accent-base);
+  animation: pulse 1.6s var(--ease) infinite;
+}
+
+.dot-needs-you {
+  background: var(--warning-base);
+}
+
+.dot-error {
+  background: var(--error-base);
+}
+
+[data-theme='light'] .dot-needs-you {
+  background: var(--warning-highlight);
+}
+
+/* Lime is a fill for large shapes; small marks on a light page need the olive. */
+[data-theme='light'] .dot-running {
+  background: var(--accent-highlight);
+}
+
+[data-theme='light'] .conn-polling .conn-dot {
+  background: var(--warning-highlight);
+}
+
+.dot-unread {
+  background: var(--info-base);
+}
+
+/* Pin and ⋯ appear on hover / keyboard focus; the title makes room for them. */
+.session-actions {
+  position: absolute;
+  right: 4px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 120ms var(--ease);
+}
+
+.session-row:hover .session-actions,
+.session-row:focus-within .session-actions {
+  opacity: 1;
+}
+
+/* The title fades out under the buttons instead of reflowing around them. */
+.session-row:hover .session-title,
+.session-row:focus-within .session-title {
+  mask-image: linear-gradient(to right, var(--mask-opaque) calc(100% - 52px), transparent calc(100% - 20px));
+}
+
+.session-row.can-pin:hover .session-title,
+.session-row.can-pin:focus-within .session-title {
+  mask-image: linear-gradient(to right, var(--mask-opaque) calc(100% - 80px), transparent calc(100% - 48px));
+}
+
+.session-actions .icon-btn:hover {
+  background: var(--bg-translucent-strong);
+}
+
+.session-actions .icon-btn:active {
+  transform: scale(0.92);
+}
+
+.session-row.is-active .session-actions .icon-btn:hover {
+  background: var(--bg-shade);
+}
+
+.session-row:hover .status-dot,
+.session-row:focus-within .status-dot {
+  opacity: 0;
+}
+
+@media (hover: none) {
+  .session-actions {
+    opacity: 0.7;
+  }
+
+  .session-pin {
+    display: none;
+  }
+
+  .session-row.can-pin:hover .session-main,
+  .session-row.can-pin:focus-within .session-main {
+    padding-right: 52px;
+  }
+
+  .session-row .status-dot {
+    right: 36px;
+  }
+
+  .session-row:hover .status-dot,
+  .session-row:focus-within .status-dot {
+    opacity: 1;
+  }
+
+  .session-main {
+    padding-right: 52px;
+  }
+}
+
+.session-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 12px;
+  color: var(--label-muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+.session-empty-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: var(--r-lg);
+  color: var(--label-soft);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.session-empty-action:hover {
+  background: var(--bg-translucent);
+  color: var(--label-title);
+}
+
+.session-source {
+  margin-right: 6px;
+  align-self: center;
+}
+
+.sidebar-foot {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 52px;
+  margin: 0 -12px;
+  padding: 0 10px 0 18px;
+  padding-bottom: env(safe-area-inset-bottom);
+  box-sizing: content-box;
+  border-top: 1px solid var(--bg-border-soft);
+}
+
+.connection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  font-size: 12.5px;
+  color: var(--label-soft);
+}
+
+.conn-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--r-full);
+  background: var(--label-faint);
+}
+
+.conn-live .conn-dot {
+  background: var(--success-base);
+}
+
+.conn-polling .conn-dot {
+  background: var(--warning-base);
+}
+
+.conn-offline .conn-dot {
+  background: var(--error-base);
+  animation: pulse 1.6s var(--ease) infinite;
+}
+
+.sidebar-foot {
+  position: relative;
+}
+
+.settings-popover {
+  min-width: 0;
+}
+
+.theme-switch {
+  margin: 4px 4px 6px;
+}
+
+.sidebar-foot .icon-btn:active,
+.sidebar-head .icon-btn:active {
+  transform: scale(0.94);
+}
+
+/* First-load placeholders */
+
+.session-skeleton {
+  padding-top: 4px;
+}
+
+.skeleton-bar {
+  display: block;
+  height: 10px;
+  border-radius: var(--r-full);
+  background: var(--bg-translucent-strong);
+  animation: skeleton-pulse 1.4s var(--ease) infinite;
+  animation-delay: var(--delay, 0ms);
+}
+
+.skeleton-label {
+  width: 64px;
+  height: 8px;
+  margin: 18px 10px 10px;
+}
+
+.skeleton-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px 11px;
+}
+
+.skeleton-title {
+  width: var(--w);
+  height: 10px;
+}
+
+.skeleton-meta {
+  width: calc(var(--w) * 0.5);
+  height: 8px;
+  opacity: 0.6;
+}
+
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Settings popover rows */
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 6px 8px;
+  border-radius: var(--r-10);
+  text-align: left;
+  transition: background-color 120ms var(--ease);
+}
+
+.setting-row:hover:not(:disabled) {
+  background: var(--bg-base-hover);
+}
+
+.setting-row:focus-visible {
+  outline-offset: -2px;
+}
+
+.setting-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-lg);
+  background: var(--bg-translucent);
+  color: var(--label-soft);
+  flex-shrink: 0;
+}
+
+.setting-row[aria-checked='true'] .setting-icon {
+  background: var(--accent-bg);
+  color: var(--accent-highlight);
+}
+
+.setting-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.setting-label {
+  color: var(--label-title);
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.setting-note {
+  color: var(--label-muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+/* On/off switch */
+.switch {
+  position: relative;
+  width: 32px;
+  height: 18px;
+  border-radius: var(--r-full);
+  background: var(--bg-shade);
+  box-shadow: inset 0 0 0 1px var(--bg-border);
+  flex-shrink: 0;
+  transition: background-color 160ms var(--ease), box-shadow 160ms var(--ease);
+}
+
+.switch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--r-full);
+  background: var(--label-soft);
+  box-shadow: var(--shadow-xs);
+  transition: transform 180ms var(--ease), background-color 160ms var(--ease);
+}
+
+[aria-checked='true'] > .switch {
+  background: var(--accent-base);
+  box-shadow: none;
+}
+
+[aria-checked='true'] > .switch::after {
+  transform: translateX(14px);
+  background: var(--accent-label);
+}
+
+/* Phone: 40 px+ tap targets. */
+@media (max-width: 759px) {
+  .sidebar-head .icon-btn,
+  .sidebar-foot .icon-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .new-session {
+    height: 44px;
+  }
+
+  .import-sessions {
+    width: 44px;
+    height: 44px;
+  }
+
+  .new-session-keys {
+    display: none;
+  }
+
+  .sidebar-search {
+    height: 40px;
+  }
+
+  .sidebar-filters button {
+    height: 36px;
+  }
+
+  .session-main {
+    height: 46px;
+  }
+
+  .session-actions .icon-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .session-main,
+  .session-row.can-pin:hover .session-main,
+  .session-row.can-pin:focus-within .session-main {
+    padding-right: 64px;
+  }
+
+  .session-row .status-dot {
+    right: 48px;
+  }
+}
+
+/* Empty Trash: a quiet row that turns red once armed. */
+.empty-trash {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: calc(100% - 8px);
+  margin: 2px 4px 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--bg-border);
+  border-radius: var(--r-md);
+  background: transparent;
+  color: var(--label-muted);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.empty-trash:hover {
+  color: var(--error-base);
+  border-color: currentColor;
+}
+
+.empty-trash.is-armed {
+  color: var(--error-highlight);
+  background: var(--error-bg);
+  border-color: var(--error-border);
+}
+
+.empty-trash:disabled {
+  opacity: 0.6;
+  cursor: default;
+}

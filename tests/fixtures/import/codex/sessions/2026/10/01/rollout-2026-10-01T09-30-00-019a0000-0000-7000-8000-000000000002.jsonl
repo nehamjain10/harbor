@@ -1,0 +1,2 @@
+{"timestamp":"2026-10-01T09:30:00.000Z","type":"session_meta","payload":{"id":"019a0000-0000-7000-8000-000000000002","timestamp":"2026-10-01T09:30:00.000Z","cwd":"__CWD__","originator":"codex_cli_rs","thread_source":"subagent","source":{"subagent":{"thread_spawn":{"parent_thread_id":"019a0000-0000-7000-8000-000000000001"}}}}}
+{"timestamp":"2026-10-01T09:30:01.000Z","type":"response_item","payload":{"type":"message","role":"user","content":[{"type":"input_text","text":"Subagent task"}]}}

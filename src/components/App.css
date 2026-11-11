@@ -1,0 +1,88 @@
+.app {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-strong);
+}
+
+.sidebar-slot {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  height: 100%;
+  overflow: hidden;
+  transition: width 220ms var(--ease);
+}
+
+.app.sidebar-collapsed .sidebar-slot {
+  width: 0;
+}
+
+.drawer-scrim {
+  display: none;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-base);
+}
+
+.main-loading {
+  flex: 1;
+}
+
+/* Phone: the sidebar becomes a drawer over the content. */
+@media (max-width: 759px) {
+  .sidebar-slot,
+  .app.sidebar-collapsed .sidebar-slot {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    width: min(320px, 86vw);
+    height: var(--app-height, 100dvh);
+    transform: translateX(-100%);
+    transition: transform 240ms var(--ease);
+    box-shadow: none;
+    padding-top: env(safe-area-inset-top);
+    background: var(--bg-strong);
+  }
+
+  .sidebar-slot .sidebar {
+    width: 100%;
+  }
+
+  .app.drawer-open .sidebar-slot {
+    transform: translateX(0);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .app.drawer-open .drawer-scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 49;
+    background: var(--bg-modal-overlay);
+    animation: fade-in 200ms var(--ease);
+  }
+
+  .main {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* A clicked session is loading: the previous one stays, dimmed, until it arrives. */
+.main.is-switching .transcript-wrap {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* A new session: the composer in the middle of the page (EmptyState.jsx). */
+.main.is-new .composer-area {
+  padding-bottom: 14px;
+}

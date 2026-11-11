@@ -1,0 +1,66 @@
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.todo {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 5px 2px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--label-base);
+}
+
+.todo-icon {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.todo-icon.pending {
+  color: var(--label-faint);
+}
+
+.todo-icon.active {
+  color: var(--accent-highlight);
+}
+
+.todo-icon.done {
+  color: var(--label-muted);
+}
+
+.todo-in_progress .todo-text {
+  color: var(--label-title);
+  font-weight: 500;
+}
+
+.todo-completed .todo-text {
+  color: var(--label-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--label-faint);
+}
+
+.progress-ring circle {
+  fill: none;
+  stroke-width: 2.25;
+}
+
+.progress-track {
+  stroke: var(--bg-shade);
+}
+
+.progress-value {
+  stroke: var(--accent-base);
+  stroke-linecap: round;
+  transition: stroke-dasharray 300ms var(--ease);
+}
+
+/* The base clay is light on white; light mode uses the deeper highlight shade. */
+[data-theme='light'] .progress-value {
+  stroke: var(--accent-highlight);
+}

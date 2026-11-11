@@ -1,0 +1,625 @@
+.transcript-wrap {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.transcript {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-anchor: none;
+  scrollbar-gutter: stable both-edges;
+}
+
+.transcript-column {
+  max-width: var(--column-width);
+  margin: 0 auto;
+  padding: 32px 32px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.transcript-empty {
+  padding: 48px 0;
+  text-align: center;
+  color: var(--label-muted);
+}
+
+/* Imported session banner (until the first turn here) */
+
+.import-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: calc(100% - 48px);
+  max-width: calc(var(--column-width) - 48px);
+  margin: 14px auto 2px;
+  padding: 10px 14px;
+  border-radius: var(--r-xl);
+  border: 1px solid var(--bg-border-soft);
+  background: var(--bg-sub);
+  color: var(--label-soft);
+  font-size: 13.5px;
+  line-height: 1.5;
+  flex-shrink: 0;
+  animation: fade-in 200ms var(--ease);
+}
+
+.import-banner p {
+  flex: 1;
+  min-width: 0;
+}
+
+.import-banner-close {
+  margin: -3px -6px -3px 0;
+  color: var(--label-muted);
+}
+
+.import-banner strong {
+  color: var(--label-title);
+  font-weight: 500;
+}
+
+.import-banner-icon {
+  margin-top: 2px;
+  color: var(--accent-highlight);
+}
+
+/* User */
+
+.msg-user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 28px 0 4px;
+}
+
+.msg-user:first-child {
+  margin-top: 0;
+}
+
+.user-bubble {
+  max-width: min(80%, var(--prose-width));
+  padding: 10px 16px;
+  border-radius: 18px;
+  background: var(--bg-bubble);
+  color: var(--label-title);
+  font-size: 15px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.msg-meta {
+  margin-top: 4px;
+  padding-right: 6px;
+  font-size: 12px;
+  color: var(--label-muted);
+  opacity: 0;
+  transition: opacity 150ms var(--ease);
+}
+
+.msg-user:hover .msg-meta,
+.msg-meta:has(.msg-meta-note) {
+  opacity: 1;
+}
+
+/* Under the bubble: "Fork from here", then the time. */
+.msg-foot {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.msg-foot .msg-actions {
+  margin-top: 2px;
+}
+
+.msg-meta-note {
+  color: var(--warning-highlight);
+}
+
+.msg-attachments {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+  max-width: 85%;
+  margin-bottom: 6px;
+}
+
+.attachment-thumb {
+  width: 96px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: var(--r-xl);
+  border: 1px solid var(--bg-border);
+}
+
+.attachment-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: var(--r-lg);
+  background: var(--bg-sub);
+  border: 1px solid var(--bg-border);
+  font-size: 12.5px;
+  color: var(--label-base);
+}
+
+/* Assistant */
+
+.msg-assistant {
+  margin: 16px 0 4px;
+}
+
+.assistant-head {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 10px;
+  font-size: 12.5px;
+  color: var(--label-muted);
+}
+
+.assistant-head .model-icon {
+  color: var(--label-muted);
+}
+
+.assistant-model {
+  color: var(--label-soft);
+  font-weight: 500;
+}
+
+.effort-chip {
+  height: 20px;
+  padding: 0 7px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--r-full);
+  background: var(--bg-translucent);
+  color: var(--label-muted);
+  font-size: 11.5px;
+  font-weight: 500;
+}
+
+.assistant-time {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--label-muted);
+}
+
+.msg-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 6px 0 0 -6px;
+  opacity: 0;
+  transition: opacity 150ms var(--ease);
+}
+
+.msg-stats {
+  display: inline-flex;
+  gap: 10px;
+  margin-left: 4px;
+  font-size: 12px;
+  color: var(--label-faint);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.msg-assistant:hover .msg-actions,
+.msg-user:hover .msg-actions,
+.msg-actions:focus-within {
+  opacity: 1;
+}
+
+.msg-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: var(--r-lg);
+  color: var(--label-muted);
+  font-size: 12.5px;
+}
+
+.msg-action.icon-only {
+  width: 28px;
+  padding: 0;
+  justify-content: center;
+}
+
+.msg-action:hover {
+  background: var(--bg-base-hover);
+  color: var(--label-base);
+}
+
+.live-cursor:not(.is-blocks) > :last-child::after,
+.live-cursor.is-blocks > .md-block:last-child > :last-child::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 5px;
+  vertical-align: 0.05em;
+  border-radius: var(--r-full);
+  background: var(--accent-base);
+  animation: pulse 1s var(--ease) infinite;
+}
+
+/* Base hues vanish on white; light mode uses the deeper highlight shades. */
+[data-theme='light'] .live-cursor:not(.is-blocks) > :last-child::after,
+[data-theme='light'] .live-cursor.is-blocks > .md-block:last-child > :last-child::after {
+  background: var(--accent-highlight);
+}
+
+/* Live working indicator */
+
+.working {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  font-size: 13.5px;
+  color: var(--label-soft);
+}
+
+.working-dots {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.working-dots i {
+  width: 5px;
+  height: 5px;
+  border-radius: var(--r-full);
+  background: var(--accent-base);
+  animation: pulse 1.2s var(--ease) infinite;
+}
+
+[data-theme='light'] .working-dots i {
+  background: var(--accent-highlight);
+}
+
+.working-dots i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.working-dots i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.working-sep {
+  color: var(--label-faint);
+}
+
+.working-time {
+  color: var(--label-muted);
+  font-variant-numeric: tabular-nums;
+  font-size: 12.5px;
+}
+
+.working.is-waiting .working-dots i {
+  background: var(--warning-base);
+  animation: none;
+}
+
+[data-theme='light'] .working-dots i {
+  background: var(--accent-highlight);
+}
+
+[data-theme='light'] .working.is-waiting .working-dots i {
+  background: var(--warning-highlight);
+}
+
+.working.is-waiting .working-label {
+  color: var(--warning-highlight);
+}
+
+/* Notices and turn footers */
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 12px 0;
+  padding: 9px 12px;
+  border-radius: var(--r-xl);
+  border: 0.5px solid var(--bg-border);
+  background: var(--bg-translucent);
+  color: var(--label-soft);
+  font-size: 13.5px;
+  white-space: pre-wrap;
+}
+
+.notice svg {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.notice-info svg {
+  color: var(--info-highlight);
+}
+
+.notice-warning {
+  border-color: var(--warning-border);
+  background: var(--warning-bg);
+  color: var(--warning-highlight);
+}
+
+.notice-error {
+  border-color: var(--error-border);
+  background: var(--error-bg);
+  color: var(--error-highlight);
+}
+
+/* The title of the session a fork came from. */
+.notice-link {
+  color: var(--label-title);
+  text-decoration: underline;
+  text-decoration-color: var(--bg-border);
+  text-underline-offset: 2px;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+
+.notice-link:hover {
+  text-decoration-color: currentColor;
+}
+
+.turn-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 4px;
+  font-size: 12px;
+  color: var(--label-muted);
+}
+
+.turn-footer svg {
+  color: var(--success-highlight);
+}
+
+.turn-footer.is-error svg {
+  color: var(--error-highlight);
+}
+
+.turn-footer.is-stopped svg {
+  color: var(--warning-highlight);
+}
+
+.turn-stats {
+  margin-left: 4px;
+  color: var(--label-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.turn-stats::before {
+  content: '·';
+  margin-right: 6px;
+}
+
+/* An agent's transcript (agent view): its task, report and end */
+
+/* A message sent to the agent: the user's like theirs in the conversation, the lead's
+   outlined. The label under it is information, so it does not wait for hover. */
+.steer-msg {
+  margin-top: 14px;
+}
+
+.steer-msg .user-bubble {
+  font-size: 14px;
+}
+
+.steer-msg.is-lead .user-bubble {
+  background: transparent;
+  border: 1px solid var(--bg-border);
+}
+
+.steer-msg .clamp > .show-all {
+  margin-top: 4px;
+}
+
+.steer-msg .msg-meta {
+  opacity: 1;
+}
+
+.steer-msg .msg-meta .model-icon {
+  margin-right: 4px;
+  vertical-align: -2px;
+}
+
+.steer-msg .msg-meta-note {
+  color: var(--label-soft);
+}
+
+.steer-msg .msg-meta-note svg {
+  margin-right: 3px;
+  vertical-align: -1px;
+}
+
+.steer-msg.is-sending .user-bubble {
+  opacity: 0.7;
+}
+
+.steer-msg.is-dropped .user-bubble {
+  color: var(--label-muted);
+}
+
+.steer-msg.is-dropped .msg-meta-note {
+  color: var(--warning-highlight);
+}
+
+.agent-prompt .user-bubble {
+  font-size: 14px;
+}
+
+.agent-prompt .clamp > .show-all {
+  margin-top: 4px;
+}
+
+.agent-prompt .msg-meta {
+  opacity: 1;
+}
+
+/* Why the lead stopped the agent: a line of its own under the end row. */
+.agent-end {
+  flex-wrap: wrap;
+}
+
+.agent-end-reason {
+  order: 2;
+  flex: 1 0 100%;
+  padding-left: 19px;
+  color: var(--label-soft);
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.agent-report {
+  margin: 16px 0 6px;
+  padding: 10px 14px 12px;
+  border: 1px solid var(--bg-border-soft);
+  border-radius: var(--r-xl);
+  background: var(--bg-base);
+}
+
+.agent-report-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 -8px 6px 0;
+  color: var(--label-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.agent-report-head svg {
+  color: var(--accent-highlight);
+}
+
+.agent-report-head .copy-btn {
+  margin-left: auto;
+}
+
+.agent-report-head .copy-btn svg {
+  color: inherit;
+}
+
+.agent-report.is-error {
+  border-color: var(--error-border);
+}
+
+.agent-report.is-error .agent-report-head svg:first-child {
+  color: var(--error-highlight);
+}
+
+.agent-report-error {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--label-base);
+}
+
+/* Jump to latest */
+
+.jump-latest {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  translate: -50% 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 14px 0 12px;
+  border-radius: var(--r-full);
+  border: 0.5px solid var(--bg-border-strong);
+  background: var(--bg-sub);
+  color: var(--label-base);
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+  animation: slide-up-and-fade 200ms var(--ease-pop);
+  z-index: 5;
+}
+
+.jump-latest:hover {
+  background: var(--bg-base-hover);
+  color: var(--label-title);
+}
+
+@media (max-width: 759px) {
+  .transcript {
+    scrollbar-gutter: auto;
+  }
+
+  .transcript-column {
+    padding: 20px 16px 24px;
+  }
+
+  .import-banner {
+    width: calc(100% - 32px);
+    gap: 8px;
+    margin-top: 8px;
+    padding: 8px 10px 8px 12px;
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  .import-banner-icon {
+    margin-top: 1px;
+  }
+
+  .user-bubble {
+    max-width: 92%;
+  }
+
+  .msg-actions {
+    opacity: 1;
+  }
+}
+
+/* No hover on touch screens (of any width): the actions are always there, and under
+   the user's messages only as an icon (one per message would crowd the transcript). */
+@media (hover: none) {
+  .msg-actions {
+    opacity: 1;
+  }
+
+  .msg-user .msg-action span {
+    display: none;
+  }
+}
+
+/* Above the rendered entries while older ones remain: brings them in when near. */
+.transcript-more {
+  height: 1px;
+}
+
+/* Above the messages of a session held from its tail, while older ones load. */
+.transcript-older {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 4px;
+  color: var(--label-muted);
+  font-size: 13px;
+}
+
+.transcript-older-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}

@@ -1,0 +1,127 @@
+.project-path {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.project-path .input {
+  font-size: 13px;
+}
+
+.project-path .icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-xl);
+  background: var(--bg-shade);
+}
+
+.project-error {
+  margin-top: 10px;
+  color: var(--error-highlight);
+  font-size: 13px;
+}
+
+.project-folders {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-top: 12px;
+  height: min(360px, 45vh);
+  overflow-y: auto;
+  transition: opacity 150ms var(--ease);
+}
+
+.project-folders.is-loading {
+  opacity: 0.5;
+}
+
+.folder-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  padding: 0 10px;
+  border-radius: var(--r-10);
+  text-align: left;
+  color: var(--label-soft);
+  transition: background-color 120ms var(--ease), color 120ms var(--ease);
+}
+
+.folder-row:hover {
+  background: var(--bg-base-hover);
+  color: var(--label-title);
+}
+
+.folder-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--label-base);
+  font-size: 14px;
+}
+
+.folder-row:hover .folder-name {
+  color: var(--label-title);
+}
+
+.folder-git {
+  color: var(--accent-highlight);
+}
+
+.git-badge {
+  height: 18px;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--r-sm);
+  background: var(--accent-bg);
+  color: var(--accent-highlight);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.folder-chevron {
+  color: var(--label-faint);
+}
+
+.project-empty {
+  padding: 24px;
+  text-align: center;
+  color: var(--label-muted);
+}
+
+.project-remote-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin-top: 12px;
+  color: var(--label-muted);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.project-remote-note svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--label-faint);
+}
+
+.project-selected {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  color: var(--label-soft);
+  font-size: 13px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 759px) {
+  .project-selected {
+    display: none;
+  }
+}

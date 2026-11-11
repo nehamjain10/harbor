@@ -1,0 +1,653 @@
+{
+ "scenario": "todos",
+ "prompt": "[[mock:todos-as-string]] plan the work",
+ "messages": [
+  {
+   "type": "system",
+   "subtype": "init",
+   "cwd": "/work",
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "tools": [
+    "Task",
+    "AskUserQuestion",
+    "Bash",
+    "CronCreate",
+    "CronDelete",
+    "CronList",
+    "Edit",
+    "EnterPlanMode",
+    "EnterWorktree",
+    "ExitPlanMode",
+    "ExitWorktree",
+    "ListAgents",
+    "NotebookEdit",
+    "Read",
+    "ReportFindings",
+    "ScheduleWakeup",
+    "SendMessage",
+    "Skill",
+    "TaskStop",
+    "TodoWrite",
+    "WebFetch",
+    "WebSearch",
+    "Workflow",
+    "Write"
+   ],
+   "mcp_servers": [],
+   "model": "codex/gpt-6-luna",
+   "permissionMode": "bypassPermissions",
+   "slash_commands": [
+    "deep-research",
+    "dataviz",
+    "update-config",
+    "verify",
+    "debug",
+    "code-review",
+    "simplify",
+    "batch",
+    "fewer-permission-prompts",
+    "doctor",
+    "loop",
+    "claude-api",
+    "workflow-authoring",
+    "run",
+    "run-skill-generator",
+    "plugin-authoring",
+    "agents",
+    "auto-mode-setup",
+    "autocompact",
+    "clear",
+    "color",
+    "compact",
+    "config",
+    "output-style",
+    "context",
+    "effort",
+    "fast",
+    "focus",
+    "heapdump",
+    "init",
+    "mcp",
+    "model",
+    "__remote-workflow",
+    "workflow-launch-exec",
+    "reload-plugins",
+    "reload-skills",
+    "rename",
+    "security-review",
+    "usage",
+    "insights",
+    "recap",
+    "goal",
+    "list-agents",
+    "team-onboarding"
+   ],
+   "terminal_slash_commands": [
+    "doctor",
+    "color",
+    "focus",
+    "reload-plugins"
+   ],
+   "apiKeySource": "ANTHROPIC_API_KEY",
+   "claude_code_version": "2.1.289",
+   "output_style": "default",
+   "agents": [
+    "claude",
+    "claude-code-guide",
+    "Explore",
+    "general-purpose",
+    "Plan",
+    "statusline-setup"
+   ],
+   "skills": [
+    "deep-research",
+    "dataviz",
+    "update-config",
+    "verify",
+    "debug",
+    "code-review",
+    "simplify",
+    "batch",
+    "fewer-permission-prompts",
+    "doctor",
+    "loop",
+    "claude-api",
+    "workflow-authoring",
+    "run",
+    "run-skill-generator",
+    "plugin-authoring"
+   ],
+   "plugins": [
+    {
+     "name": "cc-plugin-agents-md",
+     "path": "builtin",
+     "source": "cc-plugin-agents-md@builtin"
+    },
+    {
+     "name": "cc-plugin-plugin-authoring",
+     "path": "builtin",
+     "source": "cc-plugin-plugin-authoring@builtin"
+    }
+   ],
+   "capabilities": [
+    "interrupt_receipt_v1",
+    "interrupt_cancel_queued_v1",
+    "interrupt_send_now_v1",
+    "msg_lifecycle_v1",
+    "sdk_mcp_tools_list_changed",
+    "sdk_mcp_manifests",
+    "mcp_read_resource_v1",
+    "mcp_tool_ui_meta_v1",
+    "ui_surface_v1"
+   ],
+   "analytics_disabled": true,
+   "product_feedback_disabled": true,
+   "uuid": "268708b3-9c49-45a6-9aa2-f36de413cdd4",
+   "memory_paths": {
+    "auto": "/claude-config/projects/-tmp/memory/"
+   },
+   "messaging_socket_path": "/tmp/cc-socks/2885179.sock",
+   "fast_mode_state": "off",
+   "fast_mode_disabled_reason": "sdk_opt_in_required",
+   "per_turn_effort_active": false,
+   "view_mode": "default"
+  },
+  {
+   "type": "system",
+   "subtype": "status",
+   "status": "requesting",
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "uuid": "4d5968fa-9826-472f-b8d2-7c13282b0f85"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_start",
+    "message": {
+     "id": "msg_mock_884637e65c3c6b36",
+     "type": "message",
+     "role": "assistant",
+     "model": "codex/gpt-6-luna",
+     "content": [],
+     "stop_reason": null,
+     "stop_sequence": null,
+     "usage": {
+      "input_tokens": 120,
+      "cache_read_input_tokens": 850,
+      "cache_creation_input_tokens": 30,
+      "output_tokens": 1
+     }
+    }
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "30695ddc-471b-4ca8-a3d7-06c58a8f4581",
+   "ttft_ms": 5,
+   "thinking_display": "updates"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_start",
+    "index": 0,
+    "content_block": {
+     "type": "text",
+     "text": ""
+    }
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "a4211cbd-2d67-4bc2-bd9c-2b48b1b31674"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "text_delta",
+     "text": "Planning "
+    }
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "b58eb222-3ef7-4d07-be89-0dd672b1680a"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "text_delta",
+     "text": "the work."
+    }
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "9dffb342-ac03-47e7-a774-2ceb8c3ecb69"
+  },
+  {
+   "type": "assistant",
+   "message": {
+    "id": "msg_mock_884637e65c3c6b36",
+    "type": "message",
+    "role": "assistant",
+    "model": "codex/gpt-6-luna",
+    "content": [
+     {
+      "type": "text",
+      "text": "Planning the work."
+     }
+    ],
+    "stop_reason": null,
+    "stop_sequence": null,
+    "usage": {
+     "input_tokens": 120,
+     "cache_read_input_tokens": 850,
+     "cache_creation_input_tokens": 30,
+     "output_tokens": 1
+    },
+    "context_management": null
+   },
+   "parent_tool_use_id": null,
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "uuid": "4e57e53b-230a-4760-a9b1-4ee021236132",
+   "timestamp": "2026-10-05T18:35:37.621Z"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_stop",
+    "index": 0
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "02aa5fe3-f218-4eea-84bd-e620fe9c330d"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_start",
+    "index": 1,
+    "content_block": {
+     "type": "tool_use",
+     "id": "toolu_mock_98a4f90e00492824",
+     "name": "TodoWrite",
+     "input": {}
+    }
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "a8d94529-fdc4-4a98-a3e6-c85bba245c15"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 1,
+    "delta": {
+     "type": "input_json_delta",
+     "partial_json": "{\"todos\":[{\"content\":\"Inspect the repository\",\"status\":\"completed\",\"activeForm\":\"Inspecting the repository\"},{\"content\":\"Write the fix\",\"status\":\"in_progress\",\"activeForm\":\"Writing the fix\"},{\"content\":\"Run the tests\",\"status\":\"pending\",\"activeForm\":\"Running the tests\"}]}"
+    }
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "75c79a13-49a6-4f16-b6cc-ecc9ab0a5696"
+  },
+  {
+   "type": "assistant",
+   "message": {
+    "id": "msg_mock_884637e65c3c6b36",
+    "type": "message",
+    "role": "assistant",
+    "model": "codex/gpt-6-luna",
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_mock_98a4f90e00492824",
+      "name": "TodoWrite",
+      "input": {
+       "todos": [
+        {
+         "content": "Inspect the repository",
+         "status": "completed",
+         "activeForm": "Inspecting the repository"
+        },
+        {
+         "content": "Write the fix",
+         "status": "in_progress",
+         "activeForm": "Writing the fix"
+        },
+        {
+         "content": "Run the tests",
+         "status": "pending",
+         "activeForm": "Running the tests"
+        }
+       ]
+      }
+     }
+    ],
+    "stop_reason": null,
+    "stop_sequence": null,
+    "usage": {
+     "input_tokens": 120,
+     "cache_read_input_tokens": 850,
+     "cache_creation_input_tokens": 30,
+     "output_tokens": 1
+    },
+    "context_management": null
+   },
+   "parent_tool_use_id": null,
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "uuid": "92ab01b7-c550-4227-937c-1e47dde6197b",
+   "timestamp": "2026-10-05T18:35:37.622Z"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_stop",
+    "index": 1
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "53bd26e4-d3e1-4acd-b6c8-0e643e921a70"
+  },
+  {
+   "type": "user",
+   "message": {
+    "role": "user",
+    "content": [
+     {
+      "tool_use_id": "toolu_mock_98a4f90e00492824",
+      "type": "tool_result",
+      "content": "Todos have been modified successfully. Ensure that you continue to use the todo list to track your progress. Please proceed with the current tasks if applicable"
+     }
+    ]
+   },
+   "parent_tool_use_id": null,
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "uuid": "328f5c65-dae5-46e9-848b-ba6ddbf43a24",
+   "timestamp": "2026-10-05T18:35:37.625Z",
+   "tool_use_result": {
+    "oldTodos": [],
+    "newTodos": [
+     {
+      "content": "Inspect the repository",
+      "status": "completed",
+      "activeForm": "Inspecting the repository"
+     },
+     {
+      "content": "Write the fix",
+      "status": "in_progress",
+      "activeForm": "Writing the fix"
+     },
+     {
+      "content": "Run the tests",
+      "status": "pending",
+      "activeForm": "Running the tests"
+     }
+    ]
+   }
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_delta",
+    "delta": {
+     "stop_reason": "tool_use",
+     "stop_sequence": null
+    },
+    "usage": {
+     "output_tokens": 20
+    }
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "1039471f-1972-4d40-9715-fe4295de435a"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_stop"
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "ea81ae1e-16d1-48db-abd0-b1b752e077e4"
+  },
+  {
+   "type": "system",
+   "subtype": "status",
+   "status": "requesting",
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "uuid": "1e26b14b-4cc2-48c5-b19f-3f1c97eaa3a8"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_start",
+    "message": {
+     "id": "msg_mock_4f057528c9fa3279",
+     "type": "message",
+     "role": "assistant",
+     "model": "codex/gpt-6-luna",
+     "content": [],
+     "stop_reason": null,
+     "stop_sequence": null,
+     "usage": {
+      "input_tokens": 120,
+      "cache_read_input_tokens": 850,
+      "cache_creation_input_tokens": 30,
+      "output_tokens": 1
+     }
+    }
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "bd0031ea-96ce-4568-a017-ae632c3d8779",
+   "ttft_ms": 3,
+   "thinking_display": "updates"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_start",
+    "index": 0,
+    "content_block": {
+     "type": "text",
+     "text": ""
+    }
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "82727085-8cc5-41ce-ae29-f2c21f679fca"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "text_delta",
+     "text": "Tool result: ok — Todos have been modified successfully. Ensure that you continue to use "
+    }
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "5779b94b-6c51-41f5-91ff-cdb073ad88eb"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_delta",
+    "index": 0,
+    "delta": {
+     "type": "text_delta",
+     "text": "the todo list to track your progress. Please proceed with the current tasks if applicable"
+    }
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "1626cc4b-f58d-45d6-9e44-d642ce19db89"
+  },
+  {
+   "type": "assistant",
+   "message": {
+    "id": "msg_mock_4f057528c9fa3279",
+    "type": "message",
+    "role": "assistant",
+    "model": "codex/gpt-6-luna",
+    "content": [
+     {
+      "type": "text",
+      "text": "Tool result: ok — Todos have been modified successfully. Ensure that you continue to use the todo list to track your progress. Please proceed with the current tasks if applicable"
+     }
+    ],
+    "stop_reason": null,
+    "stop_sequence": null,
+    "usage": {
+     "input_tokens": 120,
+     "cache_read_input_tokens": 850,
+     "cache_creation_input_tokens": 30,
+     "output_tokens": 1
+    },
+    "context_management": null
+   },
+   "parent_tool_use_id": null,
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "uuid": "46e90831-6ac4-44b2-9d5d-a14f0047fb52",
+   "timestamp": "2026-10-05T18:35:37.638Z"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "content_block_stop",
+    "index": 0
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "8285e943-6409-4296-aae5-f89b4ea29b76"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_delta",
+    "delta": {
+     "stop_reason": "end_turn",
+     "stop_sequence": null
+    },
+    "usage": {
+     "output_tokens": 20
+    }
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "a0b28b33-5e5c-43d2-b16d-0e2cdc9949ef"
+  },
+  {
+   "type": "stream_event",
+   "event": {
+    "type": "message_stop"
+   },
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "parent_tool_use_id": null,
+   "uuid": "42f3dda5-5459-4b02-80a3-c5d38db85cc7"
+  },
+  {
+   "type": "system",
+   "subtype": "post_turn_summary",
+   "summarizes_uuid": "46e90831-6ac4-44b2-9d5d-a14f0047fb52",
+   "status_category": "review_ready",
+   "status_detail": "Tool result: ok — Todos have been modified successfully. Ensure that you continue to use the todo list to track your progress. Please proceed with the current tasks if applicable",
+   "needs_action": "",
+   "uuid": "1357cab9-412f-403b-a8e2-dc8cd9274346",
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04"
+  },
+  {
+   "duration_api_ms": 19,
+   "stop_reason": "end_turn",
+   "session_id": "0a26d260-1486-4eb7-8323-8233d77d2a04",
+   "total_cost_usd": 0.0024000000000000002,
+   "usage": {
+    "input_tokens": 240,
+    "cache_creation_input_tokens": 60,
+    "cache_read_input_tokens": 1700,
+    "output_tokens": 40,
+    "output_tokens_details": {
+     "thinking_tokens": 0
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 0,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "modelUsage": {
+    "codex/gpt-6-luna": {
+     "inputTokens": 240,
+     "outputTokens": 40,
+     "cacheReadInputTokens": 1700,
+     "cacheCreationInputTokens": 60,
+     "webSearchRequests": 0,
+     "costUSD": 0.0024000000000000002,
+     "contextWindow": 200000,
+     "maxOutputTokens": 32000,
+     "thinkingTokens": 0,
+     "canonicalModel": "codex/gpt-6-luna",
+     "provider": "firstParty",
+     "costBasis": "unknown"
+    }
+   },
+   "permission_denials": [],
+   "terminal_reason": "completed",
+   "fast_mode_state": "off",
+   "fast_mode_disabled_reason": "sdk_opt_in_required",
+   "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+     "background": 0,
+     "foreground": 0,
+     "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+     "parent": 0,
+     "user": 0,
+     "system": 0
+    },
+    "refused": {
+     "depth_limit": 0,
+     "concurrency_limit": 0,
+     "budget": 0
+    },
+    "by_type": {}
+   },
+   "is_error": false,
+   "num_turns": 2,
+   "subtype": "success",
+   "api_error_status": null,
+   "result": "Tool result: ok — Todos have been modified successfully. Ensure that you continue to use the todo list to track your progress. Please proceed with the current tasks if applicable",
+   "ttft_ms": 64,
+   "type": "result",
+   "duration_ms": 89,
+   "uuid": "c74dc6b5-7847-44e7-ae81-797500b8bc62",
+   "ttft_stream_ms": 63,
+   "time_to_request_ms": 59,
+   "first_content_frame_ms": 63,
+   "queued_turn_count": 0,
+   "result_index": 0
+  }
+ ]
+}

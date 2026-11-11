@@ -1,0 +1,183 @@
+/* A new session: the composer sits in the middle of the page (App.css, .main.is-new),
+   the greeting above it and the starters below. */
+
+.empty {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px 32px 28px;
+  overflow: hidden;
+}
+
+.empty-inner {
+  width: 100%;
+  max-width: var(--column-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fade-in 260ms var(--ease);
+}
+
+.empty-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-serif);
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--label-title);
+}
+
+.empty-title .empty-mark {
+  translate: 0 1px;
+}
+
+.empty-sub {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--label-muted);
+}
+
+/* The cluster a remote new chat runs on: "Claude Code on Alpha in <folder>". */
+.empty-cluster {
+  color: var(--label-base);
+  font-weight: 500;
+}
+
+.project-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  height: 28px;
+  padding: 0 8px 0 9px;
+  border-radius: var(--r-lg);
+  color: var(--label-base);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 120ms var(--ease);
+}
+
+.project-chip:hover {
+  background: var(--bg-translucent-strong);
+}
+
+.project-chip svg {
+  color: var(--label-muted);
+  flex-shrink: 0;
+}
+
+.project-chip-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.empty-after {
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  max-width: calc(var(--column-width) + 64px);
+  margin: 0 auto;
+  padding: 2px 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fade-in 260ms var(--ease);
+}
+
+.starter-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.starter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  padding: 0 14px 0 12px;
+  border-radius: var(--r-10);
+  border: 0.5px solid var(--bg-border-strong);
+  color: var(--label-soft);
+  font-size: 13.5px;
+  transition: background-color 120ms var(--ease), color 120ms var(--ease), border-color 120ms var(--ease);
+}
+
+.starter svg {
+  color: var(--label-muted);
+}
+
+.starter:hover {
+  background: var(--bg-translucent);
+  color: var(--label-title);
+}
+
+.starter:hover svg {
+  color: var(--accent-highlight);
+}
+
+.starter:active {
+  transform: scale(0.98);
+}
+
+.recent-projects {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 20px;
+}
+
+.recent-label {
+  margin-right: 4px;
+  font-size: 12.5px;
+  color: var(--label-faint);
+}
+
+.recent-chip {
+  height: 26px;
+  padding: 0 9px;
+  border-radius: var(--r-md);
+  color: var(--label-muted);
+  font-size: 12.5px;
+  transition: background-color 120ms var(--ease), color 120ms var(--ease);
+}
+
+.recent-chip:hover {
+  background: var(--bg-translucent);
+  color: var(--label-title);
+}
+
+@media (max-width: 759px) {
+  .empty {
+    padding: 16px 16px 20px;
+  }
+
+  .empty-title {
+    font-size: 30px;
+    gap: 10px;
+  }
+
+  .empty-after {
+    padding: 2px 16px 16px;
+  }
+
+  .starter {
+    height: 36px;
+  }
+}

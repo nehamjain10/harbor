@@ -1,0 +1,121 @@
+.agents-strip {
+  margin-bottom: 10px;
+  padding: 4px 0;
+  border-radius: var(--r-2xl);
+  border: 1px solid var(--bg-border);
+  background: var(--bg-sub);
+  max-height: min(30vh, 200px);
+  overflow-y: auto;
+}
+
+.agent-line {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 32px;
+  padding: 0 6px 0 4px;
+  font-size: 13px;
+  color: var(--label-soft);
+}
+
+.agent-line-open {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 28px;
+  padding: 0 8px;
+  border-radius: var(--r-lg);
+  text-align: left;
+  color: inherit;
+  font-size: inherit;
+  transition: background-color 120ms var(--ease);
+}
+
+.agent-line-open:hover {
+  background: var(--bg-translucent);
+}
+
+.agent-line-icon {
+  flex-shrink: 0;
+  color: var(--accent-highlight);
+}
+
+.agent-line.is-awaiting .agent-line-icon,
+.agent-line.is-awaiting .agent-line-step {
+  color: var(--warning-highlight);
+}
+
+.agent-line-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  max-width: 40%;
+  flex-shrink: 0;
+  color: var(--label-title);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.agent-line-name svg {
+  flex-shrink: 0;
+  color: var(--label-muted);
+}
+
+.agent-line-type,
+.agent-line-model {
+  flex-shrink: 0;
+  height: 18px;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--r-full);
+  background: var(--bg-base-hover);
+  color: var(--label-muted);
+  font-size: 11px;
+}
+
+.agent-line-step {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--label-muted);
+}
+
+.agent-line-time {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--label-muted);
+}
+
+.agent-line-stop {
+  flex-shrink: 0;
+  color: var(--label-muted);
+}
+
+.agent-line-stop:hover:not(:disabled) {
+  color: var(--error-highlight);
+}
+
+@media (max-width: 759px) {
+  .agents-strip {
+    margin-bottom: 8px;
+  }
+
+  .agent-line,
+  .agent-line-open {
+    min-height: 36px;
+  }
+
+  .agent-line-type,
+  .agent-line-model {
+    display: none;
+  }
+}

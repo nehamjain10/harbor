@@ -1,0 +1,427 @@
+/* Reset, typography and shared primitives (buttons, chips, kbd, popovers). */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg-strong);
+  color: var(--label-base);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  font-feature-settings: 'cv11', 'ss01';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+#app {
+  height: var(--app-height, 100dvh);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--label-title);
+  font-weight: 600;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--font-mono);
+}
+
+svg {
+  flex-shrink: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+::selection {
+  background: var(--accent-bg-hover);
+  color: var(--label-title);
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-ring);
+  outline-offset: 2px;
+  border-radius: var(--r-md);
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+
+/* Thin scrollbars everywhere. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-shade) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-shade);
+  border-radius: var(--r-full);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--bg-border-strong);
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* Code shows exactly what was typed: no ligatures turning != into a single glyph. */
+code,
+kbd,
+pre,
+samp,
+.mono,
+.code-table,
+.diff-table {
+  font-variant-ligatures: none;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--label-muted);
+}
+
+.muted {
+  color: var(--label-muted);
+}
+
+kbd,
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--r-sm);
+  background: var(--bg-shade);
+  color: var(--label-soft);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: var(--r-xl);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 150ms var(--ease), color 150ms var(--ease), border-color 150ms var(--ease);
+}
+
+.btn-primary {
+  background: var(--accent-base);
+  color: var(--accent-label);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-base-hover);
+}
+
+.btn-secondary {
+  background: var(--bg-shade);
+  color: var(--label-base);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--bg-border);
+}
+
+.btn-ghost {
+  color: var(--label-soft);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--bg-base-hover);
+  color: var(--label-base);
+}
+
+.btn-danger {
+  background: var(--error-bg);
+  color: var(--error-highlight);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: var(--error-border);
+}
+
+.btn-sm {
+  height: 30px;
+  padding: 0 10px;
+  border-radius: var(--r-lg);
+  font-size: 13px;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-lg);
+  color: var(--label-soft);
+  transition: background-color 150ms var(--ease), color 150ms var(--ease);
+}
+
+.icon-btn:hover:not(:disabled),
+.icon-btn[aria-expanded='true'],
+.icon-btn[aria-pressed='true'] {
+  background: var(--bg-base-hover);
+  color: var(--label-title);
+}
+
+.icon-btn-sm {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--r-md);
+}
+
+/* Text inputs */
+
+.input {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: var(--r-xl);
+  border: 1px solid var(--bg-border);
+  background: var(--bg-base);
+  color: var(--label-title);
+  font-size: 14px;
+  transition: border-color 150ms var(--ease), box-shadow 150ms var(--ease);
+}
+
+.input::placeholder {
+  color: var(--label-muted);
+}
+
+.input:focus {
+  border-color: var(--bg-border-strong);
+  box-shadow: 0 0 0 3px var(--bg-translucent);
+}
+
+/* Segmented control */
+
+/* Diff line counts (+12 −3) */
+.stat-adds {
+  color: var(--success-highlight);
+}
+
+.stat-dels {
+  color: var(--error-highlight);
+}
+
+.segmented {
+  display: flex;
+  padding: 2px;
+  gap: 2px;
+  border-radius: var(--r-10);
+  background: var(--bg-translucent);
+}
+
+.segmented button {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: var(--r-lg);
+  color: var(--label-soft);
+  font-size: 13px;
+  font-weight: 500;
+  transition: background-color 150ms var(--ease), color 150ms var(--ease);
+}
+
+.segmented button:hover {
+  color: var(--label-base);
+}
+
+.segmented button[aria-pressed='true'] {
+  background: var(--bg-shade);
+  color: var(--label-title);
+  box-shadow: var(--shadow-xs);
+}
+
+/* Spinner + pulse */
+
+.spin {
+  animation: spin 900ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.85);
+  }
+}
+
+@keyframes slide-up-and-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Content that opens under its toggle settles down into place. */
+@keyframes unfold {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, var(--label-muted) 0%, var(--label-muted) 35%, var(--label-title) 50%, var(--label-muted) 65%, var(--label-muted) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 2.2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,253 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  max-width: 100%;
+  padding: 0 8px 0 9px;
+  border-radius: var(--r-10);
+  color: var(--label-soft);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 120ms var(--ease), color 120ms var(--ease);
+}
+
+.chip:hover:not(:disabled),
+.chip[aria-expanded='true'] {
+  background: var(--bg-translucent-strong);
+  color: var(--label-title);
+}
+
+.chip-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chip-caret {
+  color: var(--label-muted);
+  margin-left: -1px;
+}
+
+.chip-hint {
+  padding: 1px 6px;
+  border-radius: var(--r-full);
+  background: var(--info-bg);
+  color: var(--info-highlight);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.chip-model .model-icon {
+  color: var(--label-soft);
+}
+
+/* Mode tones (chip and picker icon) */
+
+/* A mode other than the default says so in its color, without a fill. */
+.chip-mode.tone-accent {
+  color: var(--accent-highlight);
+}
+
+.chip-mode.tone-info {
+  color: var(--info-highlight);
+}
+
+.chip-mode.tone-support {
+  color: var(--support-highlight);
+}
+
+.chip-mode.tone-warning {
+  color: var(--warning-highlight);
+}
+
+.chip-mode:not(.tone-neutral):hover:not(:disabled),
+.chip-mode:not(.tone-neutral)[aria-expanded='true'] {
+  background: var(--bg-base-hover);
+}
+
+.chip-mode:not(.tone-neutral) .chip-caret {
+  color: inherit;
+  opacity: 0.7;
+}
+
+.menu-row.tone-accent .menu-row-icon {
+  color: var(--accent-highlight);
+  background: var(--accent-bg);
+}
+
+.menu-row.tone-info .menu-row-icon {
+  color: var(--info-highlight);
+  background: var(--info-bg);
+}
+
+.menu-row.tone-support .menu-row-icon {
+  color: var(--support-highlight);
+  background: var(--support-bg);
+}
+
+.menu-row.tone-warning .menu-row-icon {
+  color: var(--warning-highlight);
+  background: var(--warning-bg);
+}
+
+.picker-popover {
+  width: 340px;
+}
+
+/* Effort meter */
+
+.effort-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 1.5px;
+  height: 12px;
+}
+
+.effort-bars i {
+  width: 2.5px;
+  border-radius: 1px;
+  background: var(--label-faint);
+}
+
+.effort-bars i:nth-child(1) {
+  height: 4px;
+}
+
+.effort-bars i:nth-child(2) {
+  height: 6px;
+}
+
+.effort-bars i:nth-child(3) {
+  height: 8px;
+}
+
+.effort-bars i:nth-child(4) {
+  height: 10px;
+}
+
+.effort-bars i:nth-child(5) {
+  height: 12px;
+}
+
+.effort-bars i.lit {
+  background: currentColor;
+}
+
+.chip-effort .effort-bars {
+  color: var(--label-base);
+}
+
+.menu-row.is-selected .effort-bars {
+  color: var(--accent-highlight);
+}
+
+/* Fast mode (GPT models): a switch under the efforts, and a rabbit on the chip when on. */
+.fast-row {
+  margin-top: 4px;
+  border-top: 1px solid var(--bg-border-soft);
+  border-radius: 0 0 var(--r-md) var(--r-md);
+}
+
+.fast-row[aria-checked='true'] .menu-row-icon {
+  color: var(--accent-highlight);
+}
+
+.chip-fast {
+  color: var(--accent-highlight);
+  flex-shrink: 0;
+}
+
+/* Room for the fast-mode switch without scrolling the efforts. */
+.picker-popover:has(.fast-row) {
+  max-height: min(540px, calc(var(--app-height, 100dvh) - 140px));
+}
+
+/* OpenRouter models: a side panel next to the model menu (a list inside it on phones). */
+
+.openrouter-row .openrouter-chevron {
+  color: var(--label-muted);
+}
+
+.openrouter-row.is-open {
+  background: var(--bg-base-hover);
+}
+
+.openrouter-side {
+  padding-top: 0;
+}
+
+.openrouter-head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 0 4px;
+  background: var(--bg-sub);
+}
+
+.openrouter-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-10);
+  color: var(--label-soft);
+}
+
+.openrouter-back:hover,
+.openrouter-back:focus-visible {
+  background: var(--bg-base-hover);
+  color: var(--label-title);
+  outline: none;
+}
+
+.openrouter-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--bg-border);
+  border-radius: var(--r-10);
+  background: var(--bg-base);
+  color: var(--label-muted);
+}
+
+.openrouter-search:focus-within {
+  border-color: var(--accent-highlight);
+}
+
+.openrouter-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--label-title);
+  font: inherit;
+  font-size: 13px;
+}
+
+.openrouter-head + .popover-group {
+  margin-top: 0;
+  border-top: 0;
+  padding-top: 6px;
+}
+
+.openrouter-retry {
+  color: var(--accent-highlight);
+  font-weight: 500;
+}
+
+@media (max-width: 759px) {
+  .openrouter-search input {
+    font-size: 16px; /* no zoom on focus */
+  }
+}

@@ -1,0 +1,90 @@
+/* highlight.js token classes → syntax tokens (tokens.css). */
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-meta .hljs-keyword,
+.hljs-doctag,
+.hljs-template-tag {
+  color: var(--code-keyword);
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-symbol,
+.hljs-char.escape_,
+.hljs-template-variable,
+.hljs-meta .hljs-string {
+  color: var(--code-string);
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-bullet {
+  color: var(--code-number);
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--code-comment);
+  font-style: italic;
+}
+
+.hljs-title,
+.hljs-title.function_,
+.hljs-section,
+.hljs-name {
+  color: var(--code-function);
+}
+
+.hljs-type,
+.hljs-built_in,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-class .hljs-title {
+  color: var(--code-type);
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-property,
+.hljs-variable,
+.hljs-variable.language_,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-tag .hljs-attr {
+  color: var(--code-attr);
+}
+
+.hljs-variable.language_ {
+  font-style: italic;
+}
+
+.hljs-meta,
+.hljs-tag,
+.hljs-punctuation,
+.hljs-operator,
+.hljs-link {
+  color: var(--code-meta);
+}
+
+.hljs-deletion {
+  color: var(--code-deletion);
+}
+
+.hljs-addition {
+  color: var(--code-addition);
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 600;
+}
+
+.hljs-section {
+  font-weight: 600;
+}
